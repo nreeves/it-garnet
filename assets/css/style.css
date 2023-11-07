@@ -1,0 +1,22 @@
+body {
+    background-color:darkolivegreen;
+}
+
+/* type selector */ 
+
+body {
+    background-color: ;
+}
+
+/* id selector */
+
+h1#main-heading{
+    color:goldenrod
+}
+
+/* class selector */ 
+
+.primary{
+    border: 2px solid #000000 
+    padding: 20px; 
+}
