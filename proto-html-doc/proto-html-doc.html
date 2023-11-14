@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+    <title>HTML5 prototype</title>
+    <meta name="proto" content="HTML5 doctype" />
+    <meta name="nreeves" content="Nate Reeves" />
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <div id="index-main">
+        <header>
+            <!-- header -->
+            <h1>Welcome to My Web Page</h1>
+        </header>
+        <section id="content">
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            
+            <p>paragraph</p>
+            <strong>strong text</strong>
+            <em>emphasis.</em>
+            
+            <!-- Ordered-->
+            <ol>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ol>
+            
+            <!-- Unordered -->
+            <ul>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
+            </ul>
+            
+            <!-- Definitions -->
+            <dl>
+                <dt>Definition 1</dt>
+                <dd>Description 1</dd>
+                <dt>Definition 2</dt>
+                <dd>Description 2</dd>
+            </dl>
+            
+            <!-- Inline -->
+            <p>This is an example of an <q>inline quote</q> within a paragraph.</p>
+            
+            <!-- Block -->
+            <blockquote>
+                <p>block quote.</p>
+            </blockquote>
+            
+            <table>
+                <!-- Table -->
+                <caption>Week day table</caption>
+                <tr>
+                    <th scope="col">Monday</th>
+                    <th scope="col">Tuesday</th>
+                    <th scope="col">Wednesday</th>
+                    <th scope="col">Thursday</th>
+                    <th scope="col">Friday</th>
+                </tr>
+                <tr>
+                    <td>1:00pm, 2:00pm</td>
+                    <td>1:00pm, 2:00pm</td>
+                    <td>1:00pm, 2:00pm</td>
+                    <td>1:00pm, 2:00pm</td>
+                    <td>1:00pm, 2:00pm</td>
+                </tr>
+            </table>
+            
+            <!-- Image -->
+            <img src="NA.jpg" alt="N/A" width="1" height="1" />
+        </section>
+        
+        <nav>
+            <!-- Nav -->
+            <ul>
+                <li><a href="index.html" title="Home">Home</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/University_of_Arkansas_at_Little_Rock" title="About" target="_blank">About</a></li>
+                <li><a href="mailto:nereeves@ualr.edu" title="Contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <footer>
+            <!-- Foot + automatic year script  -->
+            <h6>&copy; <script>
+                let currentYear = new Date().getFullYear(); 
+                document.write(currentYear);
+            </script> nreeves | <a href="mailto:nereeves@ualr.edu">Email</a> | <a href="#main">Back to Top</a></h6>
+        </footer>
+    </div>
+</body>
+</html>
