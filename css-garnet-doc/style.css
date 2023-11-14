@@ -1,0 +1,168 @@
+/* Color Theme Swatches in Hex 
+#CC3A67
+#161A59
+#101240
+#0A0B26
+#0ABFBF
+*/
+
+/* ---------------Box Sizing----------------- */
+
+html {
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  /* ---------------Utility Classes----------------- */
+  
+  .container{
+    margin:auto;
+    padding:40px;
+  }
+  
+  /* ---------------Responsive Images----------------- */
+  
+  img{
+    max-width:100%;
+    height:auto;
+  }
+  
+  /* ---------------Global Styles----------------- */
+  
+  body {
+    font-family: "Rubik", sans-serif;
+    background-color:#101240;
+  }
+  
+  main{
+    background-color:#ffffff;
+    width:80vw;
+    /* Long form */
+    margin-top:40px;
+    margin-right:auto;
+    margin-bottom:40px;
+    margin-left:auto;
+    /* 4 Value Shorthand T,R,B,L*/
+    margin:40px auto 40px auto;
+    /* 2 Value Shorthand T/B, L/R*/
+    margin:40px auto;
+    border:2px solid #0ABFBF;
+    border-radius:4px;
+  }
+  
+  header.primary{
+    background-color:#8fbdd9;
+    background-image: url("https://assets.codepen.io/7248/bg_1.png");
+    /* Local Path
+      background-image: url("../img/bg_1.png")
+    */  
+    background-size:cover;
+    background-repeat:no-repeat;
+    padding:20px; 
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    border-bottom:3px solid #104d73;
+  }
+  
+  header.primary .hgroup{
+    width:70%;
+  }
+  
+  .hgroup h1, .hgroup h2{
+    margin:0;
+  }
+  
+  header.primary .hgroup h1 a{
+    color:white;
+    text-decoration:none;
+    text-shadow:1px 1px #000000;
+    font-size:2.6rem;
+  }
+  
+  header.primary .hgroup h2{
+    color:#ffffff;
+    text-shadow:1px 1px #000000;
+    font-size:1.8em;
+    line-height:1.1
+  }
+  
+  header.primary nav {
+    width:30%;
+    margin:0;
+  }
+  
+  header.primary nav ul{
+    list-style-type:none;
+    margin:0;
+  }
+  
+  header.primary nav ul li{
+    margin-bottom:10px;
+  }
+  
+  header.primary nav a{
+    color:#fff;
+    text-decoration:none;
+    background-color:rgba(0,0,0,.6);
+    display:block;
+    padding: 10px;
+    border-radius: 20px 0;
+    border:1px solid #cc3a67;
+    border-right:10px solid #cc3a67;
+    text-align:right;
+  }
+  
+  #content h2, #content h3, .widget h2{
+    color:#161a59;
+    border-left:7.5px solid #d94179;
+    border-radius:15px 0;
+    padding:7.5px;
+  }
+  
+  #blog {
+   background: rgb(34,193,195);
+  background: linear-gradient(4deg, rgba(34,193,195,1) 0%, rgba(16,77,115,1) 100%);
+    padding:20px 0;
+    border-top:6px double #0a96a6;
+    border-bottom:6px double #0a96a6;
+  }
+  
+  #blog > h2{
+    color:#ffffff;
+    text-shadow:2px 2px #000000;
+    font-size:2.2rem;
+    margin-left:20px;
+  }
+  
+  article.post{
+    background-color:#ffffff;
+    margin:20px;
+    padding:20px;
+    display:grid;
+    grid-template-columns:1fr 3fr;
+    grid-template-areas:
+    "figure header"
+    "figure post-content"
+    "figure footer";
+    grid-gap:20px;
+  }
+
+    article.post {
+    display: grid;
+    grid-template-areas:
+      "post-content"
+      "footer";
+  }
+  
+  article.post .post-content {
+    grid-area: post-content;
+  }
+  
+  article.post .post-meta {
+    grid-area: footer;
+  }
