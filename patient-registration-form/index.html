@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Information Form</title>
+</head>
+<body>
+    <h1> Patient Registration Form </h1>
+    <form action="submit.php" method="post">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="middleInitial">Middle Initial:</label>
+        <input type="text" id="middleInitial" name="middleInitial"><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label>Sex:</label>
+        <input type="radio" id="male" name="sex" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="sex" value="female">
+        <label for="female">Female</label><br><br>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" required><br><br>
+
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height"><br><br>
+
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight"><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="maritalStatus">Marital Status:</label>
+        <select id="maritalStatus" name="maritalStatus">
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="widowed">Widowed</option>
+        </select><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <label for="state">State:</label>
+        <select id="state" name="state" required>
+            <option value="AL">Arkansas</option>
+        </select><br><br>
+
+        <label for="zip">Zip Code:</label>
+        <input type="text" id="zip" name="zip" required><br><br>
+
+        <label>Do you take medications?</label>
+        <input type="radio" id="yesMeds" name="meds" value="yes">
+        <label for="yesMeds">Yes</label>
+        <input type="radio" id="noMeds" name="meds" value="no">
+        <label for="noMeds">No</label><br><br>
+
+        <label for="medications">Medications (if any):</label>
+        <input type="text" id="medications" name="medications"><br><br>
+
+        <input type="submit" value="Submit Patient Form">
+    </form>
+</body>
+</html>
