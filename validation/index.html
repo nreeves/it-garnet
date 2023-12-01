@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Information Form</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <h1> Patient Registration Form </h1>
-    <link href="style.css" rel="stylesheet">
-
+    <h1>Patient Registration Form</h1>
+    
     <form action="submit.php" method="post">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" required><br><br>
@@ -21,25 +23,25 @@
         <input type="email" id="email" name="email" required><br><br>
 
         <label>Sex:</label>
-        <input type="radio" id="male" name="sex" value="male">
+        <input type="radio" id="male" name="sex" value="male" required>
         <label for="male">Male</label>
-        <input type="radio" id="female" name="sex" value="female">
+        <input type="radio" id="female" name="sex" value="female" required>
         <label for="female">Female</label><br><br>
 
         <label for="birthday">Birthday:</label>
         <input type="date" id="birthday" name="birthday" required><br><br>
 
         <label for="height">Height:</label>
-        <input type="text" id="height" name="height"><br><br>
+        <input type="number" id="height" name="height" required min="12" max="120"><br><br>
 
         <label for="weight">Weight:</label>
-        <input type="text" id="weight" name="weight"><br><br>
+        <input type="number" id="weight" name="weight" required min="10" max="500"><br><br>
 
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required><br><br>
+        <input type="tel" id="phone" name="phone" required pattern="\d{10}"><br><br>
 
         <label for="maritalStatus">Marital Status:</label>
-        <select id="maritalStatus" name="maritalStatus">
+        <select id="maritalStatus" name="maritalStatus" required>
             <option value="single">Single</option>
             <option value="married">Married</option>
             <option value="divorced">Divorced</option>
@@ -58,12 +60,12 @@
         </select><br><br>
 
         <label for="zip">Zip Code:</label>
-        <input type="text" id="zip" name="zip" required><br><br>
+        <input type="text" id="zip" name="zip" required pattern="\d{5}"><br><br>
 
         <label>Do you take medications?</label>
-        <input type="radio" id="yesMeds" name="meds" value="yes">
+        <input type="radio" id="yesMeds" name="meds" value="yes" required>
         <label for="yesMeds">Yes</label>
-        <input type="radio" id="noMeds" name="meds" value="no">
+        <input type="radio" id="noMeds" name="meds" value="no" required>
         <label for="noMeds">No</label><br><br>
 
         <label for="medications">Medications (if any):</label>
