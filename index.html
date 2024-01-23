@@ -3,21 +3,37 @@
 <meta name="author" content="nreeves">
 <link href="" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
 
 </head>
 
 <body>
-<h1 id="main-heading" >Nate Reeves</h1>
-<nav class="primary"
+<h1 id="main-heading">Nate Reeves</h1>
+<nav class="primary">
   <nav>
-      <ul> 
+
+    <script> function sortList(ul) { 
+      var ul = document.getElementById(ul);
+
+      Array.from(ul.getElementsByTagName("LI"))
+      .sort((a, b ) => a.textContent.localeCompare(b.textContent))
+      .forEach(li => ul.appendChild(li));
+
+      sortList("assignments"); // assignment sorting javascript
+}
+    </script>
+    
+      <ul id="assignments"> 
           <li><a href="assets/index.html"> assets </a></li>
           <li><a href="cheatsheet/index.html"> cheatsheet </a></li>
           <li><a href="css-demo/index.html"> css-demo </a></li>
           <li><a href="css-garnet-doc"> css-garnet-doc </a></li>
           <li><a href="validation/index.html"> patient registration form </a></li>
           <li><a href="proto-html-doc/index.html">proto-html-doc</a></li>
-          <li><a href="assets/img/flexboxfroggy.png">flexbox-froggy </a></li>
+          <!-- <li><a href="assets/img/flexboxfroggy.png">flexbox-froggy </a></li> -->
+          <li><a href="positioning-lab/index.html"> positioning-lab </a></li>
       </ul>
   </nav>
 </body>
