@@ -14,7 +14,9 @@
 <nav class="primary">
   <nav>
 
-    <script> function sortList(ul) { 
+    <script> 
+    
+      function sortList(ul) { 
       var ul = document.getElementById(ul);
 
       Array.from(ul.getElementsByTagName("LI"))
@@ -22,18 +24,29 @@
       .forEach(li => ul.appendChild(li));
 
       sortList("assignments"); // assignment sorting javascript
+
+      function openInNewTab(url) {
+        window.open(url, '_blank').focus();
+      }
+
+      window.open(url, '_blank').focus();
 }
     </script>
-    
+
       <ul id="assignments"> 
-          <li><a href="assets/index.html"> assets </a></li>
-          <li><a href="cheatsheet/index.html"> cheatsheet </a></li>
+      <!-- 
+          <li id="hidden" style="display:none"><a href="assets/index.html"> assets </a></li>  hidden just in case
+          <li onclick="openInNewTab('cheatsheet/index.html')><a href="cheatsheet/index.html"> cheatsheet </a></li>
           <li><a href="css-demo/index.html"> css-demo </a></li>
           <li><a href="css-garnet-doc"> css-garnet-doc </a></li>
           <li><a href="validation/index.html"> patient registration form </a></li>
           <li><a href="proto-html-doc/index.html">proto-html-doc</a></li>
-          <!-- <li><a href="assets/img/flexboxfroggy.png">flexbox-froggy </a></li> -->
+          <li><a href="assets/img/flexboxfroggy.png">flexbox-froggy </a></li>
+      -->
+          <p>Second Semester</p></li>
           <li><a href="positioning-lab/index.html"> positioning-lab </a></li>
+          <br>
+          <li> <a href="https://portfolio1866.wordpress.com/"> blog </a></li>
       </ul>
   </nav>
 </body>
