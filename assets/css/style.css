@@ -1,77 +1,63 @@
-#main-heading{
-    text-align: center;
-    padding-top: 1%;
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Define grid rows */
+  min-height: 100vh; /* Ensure the body covers the viewport height */
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5-px;
+  grid-row: 2; /* Place the header in the first row */
+}
+
+nav.primary {
+  color: #fff;
+  padding: 50px;
+  margin: 0 auto; /* Center the nav horizontally */
+  display: grid;
+  place-content: center; /* Center the content vertically */
+  grid-row: 2; /* Place the nav in the second row */
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  grid-row: 3; /* Place the footer in the third row */
+}
+
+#assignments {
+  list-style: none;
+  padding: 10px;
+}
+
+#assignments li {
+  margin: 10px 0;
+}
+
+#assignments a {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 12px;
+  background-color: #555;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#assignments a:hover {
+  background-color: #777;
 }
 
 
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  nav.primary {
-    color: #fff;
-    padding: 10px;
-    margin: 100px;
-  }
-
-  footer {
-
-  }
-  
-  #assignments {
-    list-style: none;
-    padding: 0;
-  }
-  
-  #assignments li {
-    margin: 5px 0;
-  }
-  
-  #assignments a {
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 12px;
-    background-color: #555;
-    border-radius: 5px;
-    display: inline-block;
-  }
-  
-  #assignments a:hover {
-    background-color: #777;
-  }
-  
-  /* Optional: Style the sorting button */
-  .sort-button {
-    cursor: pointer;
-    padding: 8px 12px;
-    background-color: #555;
-    border: none;
-    color: #fff;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-  
-  .sort-button:hover {
-    background-color: #777;
-  }
-
-  .wrapper{
-    
-  }
-
-  .pilot{
-
-  }
-
-  footer{
-    
-  }
+.wrapper {
+  display: grid;
+  grid-template-columns: 25% 75%; 
+  grid-template-rows: auto; 
+  gap: 50px; 
+}
