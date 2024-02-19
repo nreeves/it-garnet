@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Park</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #2E8B57;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #8FBC8F;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            color: #2E8B57;
+        }
+        section {
+            padding: 20px;
+        }
+        .carousel-container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item {
+            min-width: 100%;
+            flex: 1;
+        }
+        footer {
+            background-color: #2E8B57;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to State Park</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Activities</a>
+        <a href="#">Contact</a>
+    </nav>
+    <section>
+        <h2>About State Park</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.</p>
+    </section>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">
+                <h3>Event 1</h3>
+                <p>Description of Event 1</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Event 2</h3>
+                <p>Description of Event 2</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Event 3</h3>
+                <p>Description of Event 3</p>
+            </div>
+            <!-- Add more events as needed -->
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 State Park. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const totalItems = carouselItems.length;
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }, 3000); // Change slide every 3 seconds
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+</body>
+</html>
