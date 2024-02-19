@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>State Park</title>
+    <title>Bullshoals</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,30 +19,35 @@
         }
         nav {
             background-color: #8FBC8F;
-            padding: 10px;
+            padding: 10px 0;
             text-align: center;
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         nav a:hover {
-            color: #2E8B57;
+            background-color: #2E8B57;
         }
         section {
             padding: 20px;
         }
         .carousel-container {
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
             overflow: hidden;
             position: relative;
             margin-bottom: 20px;
+            height: 300px; /* Adjusted height */
         }
         .carousel {
             display: flex;
             transition: transform 0.5s ease;
+            height: 100%; /* Ensure carousel fills container */
         }
         .carousel-item {
             min-width: 100%;
@@ -51,14 +56,16 @@
         footer {
             background-color: #2E8B57;
             color: white;
-            padding: 10px;
+            padding: 5px;
+            margin: 50px;
             text-align: center;
+            bottom: 0; 
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to State Park</h1>
+        <h1>Welcome to Bullshoals</h1>
     </header>
     <nav>
         <a href="#">Home</a>
@@ -67,28 +74,49 @@
         <a href="#">Contact</a>
     </nav>
     <section>
-        <h2>About State Park</h2>
+        <h2>About Bull Shoals</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.</p>
     </section>
     <div class="carousel-container">
         <div class="carousel">
             <div class="carousel-item">
                 <h3>Event 1</h3>
-                <p>Description of Event 1</p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+
+                </p>
             </div>
             <div class="carousel-item">
                 <h3>Event 2</h3>
-                <p>Description of Event 2</p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+
+                </p>
             </div>
             <div class="carousel-item">
                 <h3>Event 3</h3>
-                <p>Description of Event 3</p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
+
+                </p>
             </div>
             <!-- Add more events as needed -->
         </div>
     </div>
     <footer>
-        <p>&copy; 2024 Bullshoals. All rights reserved.</p>
+        <p>&copy; 2024 State Park. All rights reserved.</p>
     </footer>
 
     <script>
@@ -100,7 +128,7 @@
         setInterval(() => {
             currentIndex = (currentIndex + 1) % totalItems;
             updateCarousel();
-        }, 3000); // Change slide every 3 seconds
+        }, 10000); // Change slide every 3 seconds
 
         function updateCarousel() {
             const offset = -currentIndex * 100;
