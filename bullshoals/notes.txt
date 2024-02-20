@@ -18,3 +18,11 @@ and are redudant.
 -pages are in general very bland
 - logo is outdated and over-used
 - menu bar is extremely cluttered.
+
+
+ADDITIONAL NOTES:
+- a lot of pages do not require a seperate page, for example that staff directory and the contact
+could easily be one page. 
+
+recreation resources:
+    
