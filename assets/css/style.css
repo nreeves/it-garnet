@@ -5,6 +5,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto; /* Define grid rows */
   min-height: 100vh; /* Ensure the body covers the viewport height */
+  color: black;
 }
 
 header {
@@ -39,6 +40,7 @@ footer {
 
 #assignments li {
   margin: 10px 0;
+  color: black;
 }
 
 #assignments a {
@@ -60,4 +62,9 @@ footer {
   grid-template-columns: 25% 75%; 
   grid-template-rows: auto; 
   gap: 50px; 
+  background-color: black;
+}
+
+.name{
+color: black;
 }
