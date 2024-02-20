@@ -40,7 +40,6 @@ footer {
 
 #assignments li {
   margin: 10px 0;
-  color: black;
 }
 
 #assignments a {
@@ -61,8 +60,7 @@ footer {
   display: grid;
   grid-template-columns: 25% 75%; 
   grid-template-rows: auto; 
-  gap: 50px; 
-  background-color: black;
+  gap: 50px;
 }
 
 .name{
