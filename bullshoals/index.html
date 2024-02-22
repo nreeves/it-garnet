@@ -179,7 +179,7 @@
         setInterval(() => {
             currentIndex = (currentIndex + 1) % totalItems;
             updateCarousel();
-        }, 10000); // Change slide every 10 seconds
+        }, 100); // Change slide every 10 seconds
 
         function updateCarousel() {
             const offset = -currentIndex * 100;

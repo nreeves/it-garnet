@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "cheatsheet": true,
+    "css-garnet-doc": true,
+    "css-demo": true,
+    "validation": true,
+    "proto-html-doc": true
+  }
+}
