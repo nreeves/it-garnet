@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title class=" ">Units Conversion</title>
+<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="unitcolor"><u>Units Conversion (AJAX)</u></h1>
+        <div id="error-message"></div>
+        <form id="conversion-form">
+            <label for="from-value">From Value:</label>
+            <input type="number" id="from-value" placeholder="Enter a numeric value" required>
+            <fieldset id="from-unit">
+                <legend>From Unit:</legend>
+                <input type="radio" id="from-cm" name="from-unit" value="cm">
+                <label for="from-cm">Centimeters</label>
+    
+                <input type="radio" id="from-m" name="from-unit" value="m">
+                <label for="from-m">Meters</label>
+    
+                <input type="radio" id="from-km" name="from-unit" value="km">
+                <label for="from-km">Kilometers</label>
+    
+                <input type="radio" id="from-in" name="from-unit" value="in">
+                <label for="from-in">Inches</label>
+    
+                <input type="radio" id="from-ft" name="from-unit" value="ft">
+                <label for="from-ft">Feet</label>
+    
+                <input type="radio" id="from-yd" name="from-unit" value="yd">
+                <label for="from-yd">Yards</label>
+    
+                <input type="radio" id="from-mi" name="from-unit" value="mi">
+                <label for="from-mi">Miles</label>
+            </fieldset>
+            <fieldset id="to-unit">
+                <legend>To Unit:</legend>
+                <input type="radio" id="to-cm" name="to-unit" value="cm">
+                <label for="to-cm">Centimeters</label>
+    
+                <input type="radio" id="to-m" name="to-unit" value="m">
+                <label for="to-m">Meters</label>
+    
+                <input type="radio" id="to-km" name="to-unit" value="km">
+                <label for="to-km">Kilometers</label>
+    
+                <input type="radio" id="to-in" name="to-unit" value="in">
+                <label for="to-in">Inches</label>
+    
+                <input type="radio" id="to-ft" name="to-unit" value="ft">
+                <label for="to-ft">Feet</label>
+    
+                <input type="radio" id="to-yd" name="to-unit" value="yd">
+                <label for="to-yd">Yards</label>
+    
+                <input type="radio" id="to-mi" name="to-unit" value="mi">
+                <label for="to-mi">Miles</label>
+            </fieldset>
+            <br> 
+            <div id="result">To Value: </div>
+            </br>
+            <button type="button" onclick="calculate()">Calculate</button>
+            <button type="button" onclick="clearForm()">Clear</button>
+        </form>
+    </div> 
+    
+  <script src="script/function.js"></script>
+</body>
+</html>
