@@ -68,6 +68,48 @@
         </fieldset>
     </div>
 </form>
-<script src="assets/scripts/minmaxavg.js"></script>
+<script>
+    function calculate() {
+
+    var operand1 = parseFloat(document.getElementById("Operand1").value);
+    var operand2 = parseFloat(document.getElementById("Operand2").value);
+    var operand3 = parseFloat(document.getElementById("Operand3").value);
+
+    var operator = document.querySelector('input[name="Operator"]:checked');
+
+    if (isNaN(operand1) || isNaN(operand2) || isNaN(operand3)) {
+        alert("Please provide valid values for all operands.");
+        return;
+    }
+    var result;
+    if (operator) {
+        var operation = operator.value;
+        switch (operation) {
+            case "Min":
+                result = Math.min(operand1, operand2, operand3);
+                break;
+            case "Max":
+                result = Math.max(operand1, operand2, operand3);
+                break;
+            case "Avg":
+                result = (operand1 + operand2 + operand3) / 3;
+                break;
+            default:
+                result = "Invalid operator";
+        }
+        document.getElementById("Result").innerText = result;
+    } else {
+        document.getElementById("OperatorError").innerText = "Please select an operator.";
+    }
+}
+
+function clearform() {
+    document.getElementById("Operand1").value = "";
+    document.getElementById("Operand2").value = "";
+    document.getElementById("Operand3").value = "";
+    document.getElementById("Result").innerText = "";
+    document.getElementById("OperatorError").innerText = "";
+}
+</script>
 </body>
 </html>
