@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mars Rover Photos</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+</head>
+<body>
+
+<div id="rover-selection">
+    <label><input type="radio" name="rover" value="curiosity"> Curiosity</label>
+    <label><input type="radio" name="rover" value="opportunity"> Opportunity</label>
+    <label><input type="radio" name="rover" value="spirit"> Spirit</label>
+</div>
+
+<div id="date-selection">
+    <label for="datepicker">Select a date: </label>
+    <input type="text" id="datepicker">
+</div>
+
+<div id="gallery"></div>
+<div id="error-message"></div>
+<button id="clear-button">Clear</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#datepicker").datepicker();
+
+    $("input[type='radio']").change(function() {
+        var rover = $("input[name='rover']:checked").val();
+        if (rover) {
+            var startDate;
+            var endDate;
+            if (rover === 'curiosity') {
+                startDate = '2012-08-06';
+                endDate = 'present';
+            } else if (rover === 'opportunity') {
+                startDate = '2004-01-25';
+                endDate = '2018-06-10';
+            } else if (rover === 'spirit') {
+                startDate = '2004-01-04';
+                endDate = '2010-03-22';
+            }
+            $("#error-message").text("Mission Start Date: " + startDate + ", Mission End Date: " + endDate);
+        } else {
+            $("#error-message").text("Please select a rover.");
+        }
+    });
+
+    $("#datepicker").change(function() {
+        var selectedDate = $(this).val();
+        if (!selectedDate) {
+            $("#error-message").text("Please select a date.");
+            return;
+        }
+        $("#error-message").empty();
+        var rover = $("input[name='rover']:checked").val();
+        if (rover) {
+            var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?earth_date=' + selectedDate + '&api_key=f3EZ4v0H72qLSCsml1GJjUbu2oyTHFqL06AUGB0h';
+            $.getJSON(apiUrl, function(data) {
+                if (data.photos.length > 0) {
+                    $("#gallery").empty();
+                    $.each(data.photos.slice(0, 25), function(index, photo) {
+                        var img = $('<img>').attr('src', photo.img_src).addClass('photo').attr('title', photo.camera.full_name);
+                        $("#gallery").append(img);
+                    });
+                    $("#error-message").text("Number of photos found: " + data.photos.length);
+                } else {
+                    $("#error-message").text("No photos found for selected date.");
+                    $("#gallery").empty();
+                }
+            }).fail(function() {
+                $("#error-message").text("Failed to fetch data from NASA API.");
+            });
+        }
+    });
+
+    $("#clear-button").click(function() {
+        $("#error-message").empty();
+    });
+});
+</script>
+
+</body>
+</html>

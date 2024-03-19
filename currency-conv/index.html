@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<script>
+    <script>
+async function convert() {
+   var form = $("#myform");
+   form.validate();
+
+   if (form.valid()) {
+       var fromCurrency = document.getElementById("fromCurrency").value;
+       var toCurrency = document.getElementById("toCurrency").value;
+       var apiKey = "LOasXXgxJOX0VqFiQEt_pcBlOq1DL95O";
+       var fromDate = document.getElementById("FromDate").value;
+       var toDate = document.getElementById("ToDate").value;
+
+
+       /* URL for AJAX Call */
+       let myURL =       "https://api.polygon.io/v2/aggs/ticker/C:" + fromCurrency + toCurrency + "/range/1/day/" + fromDate + "/" + toDate + "?unadjusted=false&sort=asc&limit=32&apiKey=LOasXXgxJOX0VqFiQEt_pcBlOq1DL95O" + apiKey;
+       let msg1Object = await fetch(myURL);
+  
+   if (msg1Object.status >= 200 && msg1Object.status <= 299) {
+     let msg1JSONText = await msg1Object.text();
+     let msg1 = JSON.parse(msg1JSONText);
+     let currencyDate = [];
+     let currencyValue = [];
+     let numdays = msg1.results.length;
+    
+     if (numdays > 0) {
+       for (let i = 0; i < numdays; i++) {
+         currencyValue[i] = msg1.results[i].c;
+         let tempdate = new Date(msg1.results[i].t);
+         currencyDate[i] = tempdate.toLocaleDateString();
+       }
+     }
+
+
+     let ctx0 = document.getElementById("chartjs-0");
+     var myChart = new Chart(ctx0, {
+       type: "line",
+       data: {
+         labels: currencyDate,
+         datasets: [{
+             label: "1 " + fromCurrency + " to " + toCurrency,
+             data: currencyValue,
+             fill: false,
+             borderColor: "rgb(75, 192, 192)",
+             lineTension: 0.1,
+           },
+         ],
+       },
+       options: {
+         responsive: true,
+         maintainAspectRatio: true,
+         title: {
+           display: true,
+           text: fromCurrency + " to " + toCurrency,
+         },
+       },
+     });
+   } else {
+     alert("Currency Not Found - Status: " + msg1Object.status);
+     return;
+   }
+ }
+}
+
+</script>
+
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width">
+   <meta name="description" content="Polygon - Company Details">
+   <meta name="keywords" content="HTML, CSS, JavaScript, AJAX, jQuery">
+   <meta name="author" content="Nate">
+   <title>Polygon - Company Details</title>
+   <link href="/GitHub/it-garnet/assets/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+   <form id="myform">
+       <div class="formcontainer">
+           <h2>Currency History</h2>
+
+
+           <div class="Box">
+           <label for="fromCurrency">Base Currency:</label>
+           <select id="fromCurrency" name="fromCurrency">
+               <option value="USD">Dollar</option>
+               <option value="EUR">Euro</option>
+               <option value="MXN">Peso</option>
+               <option value="GBP">British Pound</option>
+               <option value="NIO">Nicaraguan Cordoba/option>
+           </select>
+           <label id="fromCurrencyError" class="error"></label>
+           </div>
+
+
+       <div class = "Box">
+           <label for="toCurrency">Convert to Currency:</label>
+           <select id="toCurrency" name="toCurrency">
+               <option value="USD">Dollar</option>
+               <option value="EUR">Euro</option>
+               <option value="MXN">Peso</option>
+               <option value="GBP">British Pound</option>
+               <option value="NIO">Nicaraguan Cordoba</option>
+           </select>
+           <label id="toCurrencyError" class="error"></label>
+       </div>
+
+
+            <div id="fromMonth">
+           <label class="formlabel">From Date:</label>
+           <input type="date" name="FromDate" id="FromDate" data-rule-required="true"
+               data-msg-required="From Date is Required">
+           <label id="FromDateError" class="error"></label>
+           
+           <label class="formlabel">To Date:</label>
+           <input type="date" name="ToDate" id="ToDate" data-rule-required="true"
+               data-msg-required="To Date is Required">
+           <label id="ToDateError" class="error"></label>
+           <br><br>
+           </div>
+
+
+           <div id="buttons">
+           <input type="button" value="DisplayResults" id="DisplayResults" name="DisplayResults" onclick="convert();">
+           <input type="button" value="Clear" id="Clear" name="Clear" onclick="clearForm();">
+            </div>
+
+
+           <div class="clearfix">
+               <div class="img-container">
+                   <span id="StockValueTable"></span>
+               </div>
+               <div class="img-container">
+                   <span id="StockVolumeTable"></span>
+               </div>
+           </div>
+           <hr>
+
+
+           <div class="clearfix">
+               <div class="img-container">
+                   <canvas id="chartjs-0" width="400" height="400"></canvas>
+               </div>
+               <div class="img-container">
+                   <canvas id="chartjs-1" width="400" height="400"></canvas>
+               </div>
+           </div>
+       </div>
+   </form>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+   <script src="assests/javascript/script.js"></script>
+</body>
+</html>
