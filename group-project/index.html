@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Level Information</title>
+    <script src=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/it-garnet/group-project/scripts/waterlevel.js"></script>
+    <script src="/it-garnet/group-project/scripts/button.js"></script>
+    <link href="/it-garnet/buffalo-retreat/style/style.css" rel="stylesheet"/>
+
+</head>
+<body>
+    
+    <div id="waterLevelInfo"></div>
+</body>
+<p>
+    <script>
+Swal.bindClickHandler();
+Swal.mixin({
+  toast: true
+}).bindClickHandler("data-swal-toast-template");
+</script>
+
+    <template id="my-template">
+        <swal-title>Hey!</swal-title>
+      </template>
+      
+      <button onClick="window.location.reload();" value="Reload" onClick="reload" data-swal-template="#my-template">
+        page reload
+      </button>
+      
+      <button data-swal-toast-template="#my-template">
+        button 2
+      </button>
+</p>
+</html>
