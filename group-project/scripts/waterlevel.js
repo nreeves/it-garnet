@@ -94,13 +94,13 @@ function updateChart(waterLevels) {
                 y: {
                     title: {
                         display: true,
-                        text: 'Water Level (ft)'
+                        text: 'Water Level (ft)' // Y-axis title
                     }
                 },
                 x: {
                     title: {
                         display: true,
-                        text: 'Location'
+                        text: 'Location' // X-axis title
                     }
                 }
             }
@@ -108,18 +108,17 @@ function updateChart(waterLevels) {
     });
 }
 
-// form event listener
+
 document.getElementById('dateForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // submitting with no data, cringe
+    event.preventDefault(); 
     
-   //data in put value
     var startDateTimeInput = document.getElementById('startDateTimeInput').value;
-    // ISO FORMAT EXTRACT
     var selectedDate = new Date(startDateTimeInput).toISOString().slice(0, 10);
     
-    // fetch selected date water data 
     fetchWaterLevel(selectedDate);
 });
 
-// Call fetchWaterLevel function when the window loads
+window.onload = function() {
+    var currentDate = new Date().toISOString().slice(0, 10); // ISO8601 format
+    fetchWaterLevel(currentDate);
 };
