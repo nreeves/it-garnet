@@ -4,7 +4,7 @@
 // This function fetches water level data from the USGS API for a specific site within a given date range
 async function fetchWaterLevel(startDate, endDate, siteCode, siteName) {
     try {
-        // Construct the URL for the API request using provided parameters
+        // URL construct with API for listed parameters
         const url = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${siteCode}&siteStatus=all&startDT=${startDate}&endDT=${endDate}`;
         
         
@@ -17,10 +17,8 @@ async function fetchWaterLevel(startDate, endDate, siteCode, siteName) {
         if (responseData.value && responseData.value.timeSeries) {
             // array to store water data in WaterLevels
             const waterLevels = [];
-            
-            // Iterate through each time series in the response data
             responseData.value.timeSeries.forEach(series => {
-                // Find the gage height variable within the time series
+                // gage height in time series 
                 const gageHeightVariable = series.variable.variableCode.find(variable => variable.value === "00065");
                 
                 // gage height var check
