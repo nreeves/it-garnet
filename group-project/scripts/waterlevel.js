@@ -80,7 +80,7 @@ function createChart(siteCode, siteName, waterLevels) {
     // render 2d
     const ctx = canvas.getContext('2d');
 
-    // Initialize arrays to store chart labels and data
+    // array to store chart labels and data
     const labels = [];
     const data = [];
 
