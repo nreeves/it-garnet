@@ -1,92 +1,126 @@
-// async function fetches water level data 
-async function fetchWaterLevel(date) {
+// Async javascript function called "fetchWaterLevel" that is retrieving the water data from the USGS API
+//NOTE: TIME SERIES REFERS to INFORMATION SUCH AS SITE, VARS, DATA VALUES, TIME INTERVALS,responseData.value.timeSeries is the array containing all time series information from the USGS
+
+// This function fetches water level data from the USGS API for a specific site within a given date range
+async function fetchWaterLevel(startDate, endDate, siteCode, siteName) {
     try {
-        // Construct url for the API using current date
-        var url = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07055660,07055680,07055646,07055780&siteStatus=all&startDT=${date}&endDT=${date}`;
+        // Construct the URL for the API request using provided parameters
+        const url = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${siteCode}&siteStatus=all&startDT=${startDate}&endDT=${endDate}`;
         
-        // API data pull
-        const response = await fetch(url);
-        // JSON conversion
+        
+        const response = await fetch(url); // fetch from api 
+        
+        // parse data in json format
         const responseData = await response.json();
         
-        // is data good or bad check
+        // validity check
         if (responseData.value && responseData.value.timeSeries) {
-            // water level array storage
-            var waterLevels = [];
+            // array to store water data in WaterLevels
+            const waterLevels = [];
             
-            // create const assigning the site codes to their cooresponding names 
-            const siteLocations = {
-                "07055660": "Ponca, AR",
-                "07055680": "Pruitt, AR",
-                "07055646": "Boxley, AR",
-                "07055780": "Carver Access, AR"
-            };
-            
-            // iterate time series data
+            // Iterate through each time series in the response data
             responseData.value.timeSeries.forEach(series => {
-                // site code api extraction
-                var siteCode = series.sourceInfo.siteCode[0].value;
+                // Find the gage height variable within the time series
+                const gageHeightVariable = series.variable.variableCode.find(variable => variable.value === "00065");
                 
-                // predefined site code check in api
-                if (siteCode in siteLocations) {
-                    // find "gage height variable code" in the api, it's 00065
-                    var gageHeightVariable = series.variable.variableCode.find(variable => variable.value === "00065");
-                    
-                    // if gage height var is found -> extract the latest water level then push into the water level array on line 15
-                    if (gageHeightVariable) {
-                        var latestWaterLevel = series.values[0].value[0].value;
+                // gage height var check
+                if (gageHeightVariable) {
+                    // time series iteration
+                    series.values[0].value.forEach(value => {
+                        // convert date-time string to a JS Object for interoperability
+                        const dateTime = new Date(value.dateTime);
                         
-                        waterLevels.push({ location: siteLocations[siteCode], waterLevel: latestWaterLevel });
-                    }
+                        // creates object and pushes time + waterlevel to the array 
+                        waterLevels.push({ time: dateTime, waterLevel: parseFloat(value.value) });
+                    });
                 }
             });
-            
-            //element for displaying water level
-            var waterLevelDiv = document.getElementById('waterLevelInfo');
-            //clear water level info
-            waterLevelDiv.innerHTML = '';
-            
-            //h2 header to display date
-            var header = document.createElement('h2');
-            header.textContent = `Buffalo River water height in feet for ${date}`;
-            waterLevelDiv.appendChild(header);
-            
-            //displays all site + water level data as plain text in number form
-            waterLevels.forEach(site => {
-                var siteInfo = document.createElement('p');
-                siteInfo.textContent = `Water level: ${site.location}: ${site.waterLevel} ft`;
-                waterLevelDiv.appendChild(siteInfo);
-            });
-            
-            // Update the chart with the fetched water level data
-            updateChart(waterLevels);
-        } else {
-            console.error('no data available:', date);
-        }
+        
+            return waterLevels;
+
+        } 
     } catch (error) {
-        console.error('fetch error:', error);
+        console.error('fetch failure', error);
     }
 }
 
-// function is supposed to update the water level, it doesn't
-function updateChart(waterLevels) {
-    // extract water levels and locations from the array
-    var labels = waterLevels.map(waterLevel => waterLevel.location);
-    var data = waterLevels.map(waterLevel => waterLevel.waterLevel);
+// function creating graph for all sites 
+async function createCharts(startDate, endDate, siteData) {
+    //get chartsGrid element
+    const chartsGrid = document.getElementById('chartsGrid');
+
+    // site loop in the array site[Data]
+    for (let i = 0; i < siteData.length; i++) {
+        // Extract site information
+        const site = siteData[i];
+        
+        // water level for current site
+        const waterLevels = await fetchWaterLevel(startDate, endDate, site.code, site.name);
+        
+        createChart(site.code, site.name, waterLevels);
+    }
+}
+
+// chart for each site
+function createChart(siteCode, siteName, waterLevels) {
+    // assigning html element chartsGrid for use later
+    const chartsGrid = document.getElementById('chartsGrid');
+
+    // container for canvas
+    const chartContainer = document.createElement('div');
+    chartContainer.classList.add('chart-container');
+    chartsGrid.appendChild(chartContainer);
+
+    // creating canvas with 400x400 attributes
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('width', '400');
+    canvas.setAttribute('height', '400');
+    chartContainer.appendChild(canvas);
+
+    // render 2d
+    const ctx = canvas.getContext('2d');
+
+    // Initialize arrays to store chart labels and data
+    const labels = [];
+    const data = [];
+
+    // array of week days 
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     
-    // chart.js canvas 2d, assigning waterlevelchart as it's name
-    var ctx = document.getElementById('waterLevelChart').getContext('2d');
-    // new chart
-    var waterLevelChart = new Chart(ctx, {
-        type: 'line', 
+    // iterative loop to cycle days
+    for (let i = 0; i < 7; i++) {
+        // get date of current day
+        const currentDate = new Date();
+        currentDate.setDate(currentDate.getDate() - i);
+        
+        // current day of the week
+        const dayLabel = daysOfWeek[currentDate.getDay()];
+        
+        // water level for currentDate
+        const waterLevel = waterLevels.find(data => new Date(data.time).getDay() === currentDate.getDay());
+        
+        // loop that interates over 7 days, checking and pulling the data available from the API for each day
+        if (waterLevel) {
+            
+            labels.unshift(dayLabel);
+            data.unshift(waterLevel.waterLevel);
+        } 
+    }
+
+    // chart.js customizing for the graph not important information
+    const chart = new Chart(ctx, {
+        type: 'line',
         data: {
-            labels: labels, // Location labels
+            labels: labels,
             datasets: [{
-                label: 'water level ft', 
-                data: data, // water levels as data points
-                fill: true, 
-                borderColor: 'rgb(75, 192, 192)', 
-                tension: 0.1 
+                label: `Water Level at ${siteName}`,
+                data: data,
+                fill: false,
+                borderColor: 'rgb(0, 128, 0)',
+                borderWidth: 3,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                tension: 0.1
             }]
         },
         options: {
@@ -94,13 +128,25 @@ function updateChart(waterLevels) {
                 y: {
                     title: {
                         display: true,
-                        text: 'Water Level (ft)' // Y-axis title
-                    }
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Location' // X-axis title
+                        text: 'Water Level (ft)'
+                    },
+                    suggestedMax: 10
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                     //on hover label customize adding feet and colon ,    
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': '; 
+                            }
+                            if (context.parsed.y !== null) {
+                                label += context.parsed.y.toFixed(2) + ' ft';
+                            }
+                            return label;
+                        }
                     }
                 }
             }
@@ -108,17 +154,30 @@ function updateChart(waterLevels) {
     });
 }
 
+// formats date, responds with current day
+function formatDate(date) {
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    
+    return daysOfWeek[date.getDay()];
+}
 
-document.getElementById('dateForm').addEventListener('submit', function(event) {
-    event.preventDefault(); 
+// event listener for DOM content
+document.addEventListener('DOMContentLoaded', function() {
+    // get today's date in ISO format
+    const endDate = new Date().toISOString().slice(0, 10);
     
-    var startDateTimeInput = document.getElementById('startDateTimeInput').value;
-    var selectedDate = new Date(startDateTimeInput).toISOString().slice(0, 10);
+    // ISO format
+    const startDate = new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
     
-    fetchWaterLevel(selectedDate);
+    // associate site codes with cooresponding site names
+    const siteData = [
+        { code: '07055660', name: 'Ponca, AR' },
+        { code: '07055680', name: 'Pruitt, AR' },
+        { code: '07055646', name: 'Boxley, AR' },
+        { code: '07055780', name: 'Carver Access, AR' }
+    ];
+
+    // generate chart
+
+    createCharts(startDate, endDate, siteData);
 });
-
-window.onload = function() {
-    var currentDate = new Date().toISOString().slice(0, 10); // ISO8601 format
-    fetchWaterLevel(currentDate);
-};
