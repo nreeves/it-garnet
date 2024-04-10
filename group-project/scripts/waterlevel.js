@@ -262,7 +262,6 @@ function createChart(siteCode, siteName, waterLevels) {
     });
 }
 
-// Event listener for DOM content loaded
 document.addEventListener('DOMContentLoaded', async function() {
     const endDate = new Date().toISOString().slice(0, 10);
     const startDate = new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
@@ -276,7 +275,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     await createCharts(startDate, endDate, siteData);
 
-    // Add event listener to the reset graph button
     const resetGraphBtn = document.getElementById('resetGraphBtn');
     resetGraphBtn.addEventListener('click', resetCharts);
 });
