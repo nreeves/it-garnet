@@ -19,10 +19,8 @@ async function fetchWaterLevel(startDate, endDate, siteCode, siteName) {
                 }
             });
         }
-        
         return waterLevels;
     } catch (error) {
-        console.error('Fetch failure', error);
         return [];
     }
 }
@@ -34,6 +32,11 @@ async function createCharts(startDate, endDate, siteData) {
         const waterLevels = await fetchWaterLevel(startDate, endDate, site.code, site.name);
         createChart(site.code, site.name, waterLevels);
     }
+}
+
+function formatDate(date) {
+    const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return dayOfWeek[date.getDay()];
 }
 
 // Function to create a chart for a specific site with provided water level data
@@ -133,11 +136,6 @@ function createChart(siteCode, siteName, waterLevels) {
             }
         }
     });
-}
-
-function formatDate(date) {
-    const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    return dayOfWeek[date.getDay()];
 }
 
 function createChart(siteCode, siteName, waterLevels) {
