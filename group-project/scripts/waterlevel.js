@@ -27,12 +27,10 @@ async function fetchWaterLevel(startDate, endDate, siteCode, siteName) {
     }
 }
 
-// Async function to create charts for specific sites
 async function createCharts(startDate, endDate, siteData) {
     const chartsGrid = document.getElementById('chartsGrid');
 
-    for (let i = 0; i < siteData.length; i++) {
-        const site = siteData[i];
+    for (const site of siteData) {
         const waterLevels = await fetchWaterLevel(startDate, endDate, site.code, site.name);
         createChart(site.code, site.name, waterLevels);
     }
@@ -60,23 +58,17 @@ function createChart(siteCode, siteName, waterLevels) {
         data: {
             labels: labels,
             datasets: [{
-                label: `Water Level at ${siteName}`,
-                data: data,
-                fill: false,
-                borderColor: 'rgb(0, 128, 0)',
-                borderWidth: 1,
-                pointRadius: 5, // Increase the point radius for better hover interaction
-                pointHoverRadius: 8, // Increase the hover radius for better visibility
-                tension: 0.1
+                label: `Water Level at ${siteName}`, data: data , fill: false , borderColor: 'rgb(0, 128, 0)' , borderWidth: 1 , pointRadius: 5 , pointHoverRadius: 8 , tension: 0.1,
             }]
         },
         options: {
             scales: {
+                        // x axis formatting
                 x: {
                     type: 'time',
                     time: {
                         displayFormats: {
-                            hour: 'MMM D, h:mm A' // Format for tooltip display
+                            hour: 'MMM D, h:mm A' 
                         }
                     },
                     title: {
@@ -84,6 +76,7 @@ function createChart(siteCode, siteName, waterLevels) {
                         text: 'Date/Time'
                     }
                 },
+                        // y axis formatting
                 y: {
                     title: {
                         display: true,
@@ -106,11 +99,7 @@ function createChart(siteCode, siteName, waterLevels) {
                 },
                 zoom: {
                     pan: {
-                        enabled: true,
-                        mode: 'xy',
-                        speed: 10,
-                        rangeMin: { x: 3, y: null },
-                        rangeMax: { x: 3, y: null }
+                        enabled: true, mode: 'xy', speed: 10, rangeMin: { x: 3, y: null },rangeMax: { x: 3, y: null },
                     },
                     zoom: {
                         wheel: { enabled: true },
@@ -123,26 +112,19 @@ function createChart(siteCode, siteName, waterLevels) {
         }
     });
 
-    // Ensure the chart remains within view by setting appropriate pan range limits
     chart.pan({
-        enabled: true,
-        mode: 'xy',
-        speed: 10,
+        enabled: true, mode: 'xy', speed: 10,
         limits: {
             x: { min: 0, max: 10 },
             y: { min: 0, max: 10 }
         }
     });
 
-    // Restrict zoom scale to maintain focus on the graph
     chart.zoom({
-        wheel: { enabled: true },
-        pinch: { enabled: true },
-        mode: 'xy',
-        limits: { max: 5, min: 0 }
+        wheel: { enabled: true }, pinch: { enabled: true }, mode: 'xy', limits: { max: 5, min: 0 }
+
     });
 
-    // Add custom handler to prevent zooming into negative y-values
     canvas.addEventListener('wheel', event => {
         if (event.ctrlKey) {
             const deltaY = event.deltaY;
@@ -153,15 +135,11 @@ function createChart(siteCode, siteName, waterLevels) {
     });
 }
 
-
-
-// Function to format date into day of the week
 function formatDate(date) {
     const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return dayOfWeek[date.getDay()];
 }
 
-// Function to create a chart for a specific site with provided water level data
 function createChart(siteCode, siteName, waterLevels) {
     const chartsGrid = document.getElementById('chartsGrid');
     const chartContainer = document.createElement('div');
@@ -169,8 +147,7 @@ function createChart(siteCode, siteName, waterLevels) {
     chartsGrid.appendChild(chartContainer);
 
     const canvas = document.createElement('canvas');
-    canvas.setAttribute('width', '400');
-    canvas.setAttribute('height', '400');
+    canvas.setAttribute('width'&&'height','400');
     chartContainer.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
@@ -184,21 +161,14 @@ function createChart(siteCode, siteName, waterLevels) {
             labels: labels,
             datasets: [{
                 label: `Water Level at ${siteName}`,
-                data: data,
-                fill: false,
-                borderColor: 'rgb(0, 128, 0)',
-                borderWidth: 1,
-                pointRadius: 1,
-                pointHoverRadius: 5,
-                tension: 0.1
+                data: data, fill: false, borderColor: 'rgb(0, 128, 0)',borderWidth: 1,pointRadius: 1,pointHoverRadius: 5,tension: 0.1,
             }]
         },
         options: {
             scales: {
                 x: {
                     title: {
-                        display: true,
-                        text: 'Day of the Week'
+                        display: true, text: 'Day of the Week',
                     }
                 },
                 y: {
@@ -207,7 +177,7 @@ function createChart(siteCode, siteName, waterLevels) {
                         text: 'Water Level (ft)'
                     },
                     ticks: {
-                        precision: 2,
+                        precision: 1,
                         stepSize: 0.1
                     }
                 }
@@ -215,9 +185,9 @@ function createChart(siteCode, siteName, waterLevels) {
             plugins: {
                 zoom: {
                     pan: {
-                        enabled: true,
+                        enabled: true,mode: 'xy',speed: 1,
                         mode: 'xy',
-                        speed: 10,
+                        speed: 1,
                         rangeMin: { x: 3, y: null },
                         rangeMax: { x: 3, y: null }
                     },
@@ -225,25 +195,22 @@ function createChart(siteCode, siteName, waterLevels) {
                         wheel: { enabled: true },
                         pinch: { enabled: true },
                         mode: 'xy',
-                        limits: { max: 5, min: 0 }
+                        limits: { max: 1, min: 1 }
                     }
                 }
             }
         }
     });
 
-    // Ensure the chart remains within view by setting appropriate pan range limits
     chart.pan({
         enabled: true,
         mode: 'xy',
         speed: 10,
         limits: {
-            x: { min: 0, max: 10 },
-            y: { min: 0, max: 10 }
+            x: { min: 0, max: 10 },y: { min: 0, max: 10 },
         }
     });
 
-    // Restrict zoom scale to maintain focus on the graph
     chart.zoom({
         wheel: { enabled: true },
         pinch: { enabled: true },
@@ -251,7 +218,6 @@ function createChart(siteCode, siteName, waterLevels) {
         limits: { max: 5, min: 0 }
     });
 
-    // Add custom handler to prevent zooming into negative y-values
     canvas.addEventListener('wheel', event => {
         if (event.ctrlKey) {
             const deltaY = event.deltaY;
