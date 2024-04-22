@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mars Rover Photos</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mars Rover Photo Explorer</title>
+  <link href="assets/css/style.css" rel="stylesheet">
 </head>
-<body>
-
-<div id="rover-selection">
-    <label><input type="radio" name="rover" value="curiosity"> Curiosity</label>
-    <label><input type="radio" name="rover" value="opportunity"> Opportunity</label>
-    <label><input type="radio" name="rover" value="spirit"> Spirit</label>
-</div>
-
-<div id="date-selection">
-    <label for="datepicker">Select a date: </label>
-    <input type="text" id="datepicker">
-</div>
-
-<div id="gallery"></div>
-<div id="error-message"></div>
-<button id="clear-button">Clear</button>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("#datepicker").datepicker();
-
-    $("input[type='radio']").change(function() {
-        var rover = $("input[name='rover']:checked").val();
-        if (rover) {
-            var startDate;
-            var endDate;
-            if (rover === 'curiosity') {
-                startDate = '2012-08-06';
-                endDate = 'present';
-            } else if (rover === 'opportunity') {
-                startDate = '2004-01-25';
-                endDate = '2018-06-10';
-            } else if (rover === 'spirit') {
-                startDate = '2004-01-04';
-                endDate = '2010-03-22';
-            }
-            $("#error-message").text("Mission Start Date: " + startDate + ", Mission End Date: " + endDate);
+<body class="container">
+  <header>
+    <h1>mars Rover Photo Explorer</h1>
+  </header>
+ 
+  <form id="marsRoversForm">
+    <h2>select a rover and picture date:</h2>
+ 
+    <div>
+      <label>
+        <input type="radio" name="rover" value="curiosity" required>
+        Curiosity
+      </label>
+ 
+      <label>
+        <input type="radio" name="rover" value="opportunity" required>
+        Opportunity
+      </label>
+ 
+      <label>
+        <input type="radio" name="rover" value="spirit" required>
+        Spirit
+      </label>
+    </div>
+ 
+    <div>
+      <label for="picturedate" class="formlabel">picture Date:</label>
+      <input type="date" name="picturedate" id="picturedate" required>
+    </div>
+ 
+    <div id="buttons">
+      <button type="button" onclick="searchPhotos()">search</button>
+      <button type="reset">clear</button>
+    </div>
+ 
+    <div id="photos"></div>
+ 
+    <div id="gallery"></div>
+  </form>
+ 
+  <script>
+    async function searchPhotos() {
+      const form = document.getElementById("marsRoversForm");
+      if (!form.reportValidity()) return;
+ 
+      const rover = document.querySelector('input[name="rover"]:checked').value;
+      const pictureDate = document.getElementById("picturedate").value;
+      const apiKey = "klPNVKxX7LPt1NKjTDTr52PJfARUVGGSHZO83Ddz";
+      const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${pictureDate}&api_key=${apiKey}`;
+ 
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch photos: ${response.statusText}`);
+        }
+        const data = await response.json();
+ 
+        const photos = data.photos.slice(0, 25);
+        const gallery = document.getElementById("gallery");
+        gallery.innerHTML = "";
+ 
+        if (photos.length === 0) {
+          document.getElementById("photos").textContent = "no pictures found for this date.";
         } else {
-            $("#error-message").text("Please select a rover.");
+          photos.forEach((photo, index) => {
+            const image = document.createElement("img");
+            image.src = photo.img_src;
+            image.alt = `Photo ${index + 1}`;
+            image.title = photo.camera.full_name;
+            gallery.appendChild(image);
+          });
+ 
+          document.getElementById("photos").textContent = `${photos.length} pictures found.`;
         }
-    });
-
-    $("#datepicker").change(function() {
-        var selectedDate = $(this).val();
-        if (!selectedDate) {
-            $("#error-message").text("Please select a date.");
-            return;
-        }
-        $("#error-message").empty();
-        var rover = $("input[name='rover']:checked").val();
-        if (rover) {
-            var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?earth_date=' + selectedDate + '&api_key=f3EZ4v0H72qLSCsml1GJjUbu2oyTHFqL06AUGB0h';
-            $.getJSON(apiUrl, function(data) {
-                if (data.photos.length > 0) {
-                    $("#gallery").empty();
-                    $.each(data.photos.slice(0, 25), function(index, photo) {
-                        var img = $('<img>').attr('src', photo.img_src).addClass('photo').attr('title', photo.camera.full_name);
-                        $("#gallery").append(img);
-                    });
-                    $("#error-message").text("Number of photos found: " + data.photos.length);
-                } else {
-                    $("#error-message").text("No photos found for selected date.");
-                    $("#gallery").empty();
-                }
-            }).fail(function() {
-                $("#error-message").text("Failed to fetch data from NASA API.");
-            });
-        }
-    });
-
-    $("#clear-button").click(function() {
-        $("#error-message").empty();
-    });
-});
-</script>
-
+      } catch (error) {
+        console.error("cannot load images", error);
+        document.getElementById("photos").textContent = "Cannot load images";
+      }
+    }
+  </script>
 </body>
 </html>
