@@ -1,89 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mars Rover Photos</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Mars Rover" />
+    <meta name="keywords" content="JavaScript, HTML, CSS" />
+    <meta name="author" content="PD-UALR" />
+    <title>Mars Rover</title>
 
-<div id="rover-selection">
-    <label><input type="radio" name="rover" value="curiosity"> Curiosity</label>
-    <label><input type="radio" name="rover" value="opportunity"> Opportunity</label>
-    <label><input type="radio" name="rover" value="spirit"> Spirit</label>
-</div>
+<style>
+      .formcontainer {
+  width: 1000px;
+  padding: 5px;
+}
 
-<div id="date-selection">
-    <label for="datepicker">Select a date: </label>
-    <input type="text" id="datepicker">
-</div>
+.formlabel {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  padding: 5px;
+}
 
-<div id="gallery"></div>
-<div id="error-message"></div>
-<button id="clear-button">Clear</button>
+img[src="#"] {
+  display: none;
+  position: relative;
+}
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("#datepicker").datepicker();
+img {
+  width: 150px;
+  height: 150px;
+}
 
-    $("input[type='radio']").change(function() {
-        var rover = $("input[name='rover']:checked").val();
-        if (rover) {
-            var startDate;
-            var endDate;
-            if (rover === 'curiosity') {
-                startDate = '2012-08-06';
-                endDate = 'present';
-            } else if (rover === 'opportunity') {
-                startDate = '2004-01-25';
-                endDate = '2018-06-10';
-            } else if (rover === 'spirit') {
-                startDate = '2004-01-04';
-                endDate = '2010-03-22';
-            }
-            $("#error-message").text("Mission Start Date: " + startDate + ", Mission End Date: " + endDate);
-        } else {
-            $("#error-message").text("Please select a rover.");
-        }
-    });
+#gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 25px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="formcontainer">
+      <h1>Mars Rover Photo Explorer</h1>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Rover</th>
+            <th>Mission Start</th>
+            <th>Mission End</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Curiosity</td>
+            <td>08/06/2012</td>
+            <td>09/28/2019</td>
+          </tr>
+          <tr>
+            <td>Opportunity</td>
+            <td>01/26/2004</td>
+            <td>06/11/2018</td>
+          </tr>
+          <tr>
+            <td>Spirit</td>
+            <td>01/05/2004</td>
+            <td>03/21/2004</td>
+          </tr>
+        </tbody>
+      </table>
+      <form id="myform">
+        <h2>Select a rover and a picture date:</h2>
+        <label class="formlabel">Rover:</label>
+        <label for="curiosity">
+          <input
+            type="radio"
+            name="rover"
+            id="curiosity"
+            value="curiosity"
+            onchange="getCuriosity()"
+            data-rule-required="true"
+            data-msg-required="A Rover is Required"
+          />Curiosity
+        </label>
 
-    $("#datepicker").change(function() {
-        var selectedDate = $(this).val();
-        if (!selectedDate) {
-            $("#error-message").text("Please select a date.");
-            return;
-        }
-        $("#error-message").empty();
-        var rover = $("input[name='rover']:checked").val();
-        if (rover) {
-            var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?earth_date=' + selectedDate + '&api_key=f3EZ4v0H72qLSCsml1GJjUbu2oyTHFqL06AUGB0h';
-            $.getJSON(apiUrl, function(data) {
-                if (data.photos.length > 0) {
-                    $("#gallery").empty();
-                    $.each(data.photos.slice(0, 25), function(index, photo) {
-                        var img = $('<img>').attr('src', photo.img_src).addClass('photo').attr('title', photo.camera.full_name);
-                        $("#gallery").append(img);
-                    });
-                    $("#error-message").text("Number of photos found: " + data.photos.length);
-                } else {
-                    $("#error-message").text("No photos found for selected date.");
-                    $("#gallery").empty();
-                }
-            }).fail(function() {
-                $("#error-message").text("Failed to fetch data from NASA API.");
-            });
-        }
-    });
+        <label for="opportunity">
+          <input
+            type="radio"
+            name="rover"
+            id="opportunity"
+            value="opportunity"
+            onchange="getOpportunity()"
+            data-rule-required="true"
+            data-msg-required="A Rover is Required"
+          />Opportunity
+        </label>
 
-    $("#clear-button").click(function() {
-        $("#error-message").empty();
-    });
-});
-</script>
+        <label for="spirit">
+          <input
+            type="radio"
+            name="rover"
+            id="spirit"
+            value="spirit"
+            onchange="getSpirit()"
+            data-rule-required="true"
+            data-msg-required="A Rover is Required"
+          />Spirit
+        </label>
+        <label id="roverError" for="rover" class="error"></label>
+        <br />
+        <label class="formlabel" for="pictureDate">Picture Date:</label>
+        <input
+          type="date"
+          name="pictureDate"
+          id="pictureDate"
+          data-rule-required="true"
+          data-msg-required="Please input date"
+        />
+        <label id="pictureDateError" for="pictureDate" class="error"></label>
+        <br />
+        <br />
+        <input
+          type="button"
+          value="Search"
+          id="search"
+          name="search"
+          onclick="getPhotos();"
+        />
+        <input
+          type="button"
+          value="Clear"
+          id="Clear"
+          name="Clear"
+          onclick="clearForm();"
+        />
+        <p id="numPhoto"></p>
+        <hr />
+        <p id="displayPhoto"></p>
+        <br />
 
-</body>
+        <div id="gallery">
+          <a id="href0" href="">
+            <img src="#" id="image0" title="" />
+          </a>
+
+          <a id="href1" href="">
+            <img src="#" id="image1" title="" />
+          </a>
+
+          <a id="href2" href="">
+            <img src="#" id="image2" title="" />
+          </a>
+
+          <a id="href3" href="">
+            <img src="#" id="image3" title="" />
+          </a>
+
+          <a id="href4" href="">
+            <img src="#" id="image4" title="" />
+          </a>
+
+          <a id="href5" href="">
+            <img src="#" id="image5" title="" />
+          </a>
+
+          <a id="href6" href="">
+            <img src="#" id="image6" title="" />
+          </a>
+
+          <a id="href7" href="">
+            <img src="#" id="image7" title="" />
+          </a>
+
+          <a id="href8" href="">
+            <img src="#" id="image8" title="" />
+          </a>
+
+          <a id="href9" href="">
+            <img src="#" id="image9" title="" />
+          </a>
+
+          <a id="href10" href="">
+            <img src="#" id="image10" title="" />
+          </a>
+
+          <a id="href11" href="">
+            <img src="#" id="image11" title="" />
+          </a>
+
+          <a id="href12" href="">
+            <img src="#" id="image12" title="" />
+          </a>
+
+          <a id="href13" href="">
+            <img src="#" id="image13" title="" />
+          </a>
+
+          <a id="href14" href="">
+            <img src="#" id="image14" title="" />
+          </a>
+
+          <a id="href15" href="">
+            <img src="#" id="image15" title="" />
+          </a>
+
+          <a id="href16" href="">
+            <img src="#" id="image16" title="" />
+          </a>
+
+          <a id="href17" href="">
+            <img src="#" id="image17" title="" />
+          </a>
+
+          <a id="href18" href="">
+            <img src="#" id="image18" title="" />
+          </a>
+
+          <a id="href19" href="">
+            <img src="#" id="image19" title="" />
+          </a>
+
+          <a id="href20" href="">
+            <img src="#" id="image20" title="" />
+          </a>
+
+          <a id="href21" href="">
+            <img src="#" id="image21" title="" />
+          </a>
+
+          <a id="href22" href="">
+            <img src="#" id="image22" title="" />
+          </a>
+
+          <a id="href23" href="">
+            <img src="#" id="image23" title="" />
+          </a>
+
+          <a id="href24" href="">
+            <img src="#" id="image24" title="" />
+          </a>
+        </div>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
+    <script src="/mars rover photo explorer/script/code.js"></script>
+  </body>
 </html>
