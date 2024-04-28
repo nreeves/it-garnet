@@ -1,94 +1,66 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  background-color: #1E282C;
+  color: #FFFFFF;
+  padding-top: 50px;
+  padding-bottom: 50px;
   margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-rows: auto 1fr auto; /* Define grid rows */
-  min-height: 100vh; /* Ensure the body covers the viewport height */
-  color: black;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
+.jumbotron {
+  background-color: #353535; 
   text-align: center;
-  position: center;
-  padding: 5-px;
-  grid-row: 2; /* Place the header in the first row */
+  padding: 50px 20px;
+  margin-bottom: 30px;
+  position: relative;
 }
 
-nav.primary {
-  color: #fff;
-  padding: 10px;
-  margin: 10px; /* Center the nav horizontally */
-  display: grid;
-  place-content: left; /* Center the content vertically */
-  grid-row: 2; /* Place the nav in the second row */
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  grid-row: 3; /* Place the footer in the third row */
-}
-
-#assignments {
+.links {
   list-style: none;
-  padding: 10px;
+  padding: 0;
+  margin-bottom: 20px;
 }
 
-#assignments li {
-  margin: 10px 010px;
+.links li {
+  display: inline-block;
+  margin-right: 15px;
 }
 
-#assignments a {
+.links a {
+  color: #FFFFFF;
   text-decoration: none;
-  color: #fff;
-  padding: 5px 10px;
-  background-color: #555;
-  border-radius: 5px;
-  display: inline-block;
 }
 
-#assignments a:hover {
-  background-color: #777;
+.container.filtering {
+  margin-bottom: 30px;
+  text-align: center; /* Align text center within the container */
 }
 
-
-.wrapper {
-  display: grid;
-  grid-template-columns: 25% 75%; 
-  grid-template-rows: auto; 
-  gap: 50px;
-  background-color: gray;
+.filter-cat-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute columns evenly */
 }
 
-.name{
-color: black;
+.f-cat {
+  width: 100%; /* Full width on small screens */
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.nav-div{
-  position: absolute;
-  grid-row: auto;
+@media (min-width: 768px) {
+  .f-cat {
+    width: 48%; /* Two columns on medium and large screens */
+  }
 }
-
-#main-heading{
- margin: 0 10px; 
- background-color: gray;
-
-}
-
-.dropdown {
-  position: absolute;
-  display: inline-block;
-}
-.dropdown-content {
-margin: 10px 0;
- text-align: right;
-  min-width: 500px;
-  position: absolute;
-  z-index: 1;
-  border-radius: 5px;
+footer {
+  text-align: center;
+  background-color: #353535;
+  color: #FFFFFF;
+  padding: 20px 0;
 }
