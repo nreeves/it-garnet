@@ -1,232 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bullshoals</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Ensure page takes at least full viewport height */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #2E8B57;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            position: relative;
-            text-align: center;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: inline-block;
-            border-radius:30px;
-           
-        }
-
-        nav:hover{
-
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        nav a:hover {
-            background-color: white;
-            color: inherit;
-        }
-        .calendar{
-            position: relative;
-            text-align: center;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #8FBC8F;
-            min-width: 160px;
-            z-index: 1;
-            border-radius: 5px;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: background-color 0.3s ease;
-        }
-        .dropdown-content a:hover {
-            background-color: white;
-            color:inherit;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        section {
-            flex: 1; /* Grow to fill remaining space */
-            padding: 20px;
-        }
-        .carousel-container {
-            width: 90%;
-            margin: 0 auto;
-            overflow: hidden;
-            position: relative;
-            height: 300px; /* Adjusted height */
-        }
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease;
-            height: 100%; /* Ensure carousel fills container */
-        }
-        .carousel-item {
-            min-width: 100%;
-            flex: 1;
-        }
-        footer {
-            background-color: #2E8B57;
-            color: white;
-            padding: 5px;
-            text-align: center;
-            margin-top: auto; /* Push footer to the bottom */
-        }
-    .grid-container {
-        display:grid;
-        grid-template-columns: repeat(3,1fr);
-        grid-auto-rows: 200px;
-        justify-content: center;
-        align-items: center;
-        
-    }
-        
-    .grid-calendar{
-        margin: 50px;
-        padding: 50px;
-        max-width: 200px;
-        max-height: 200px;
-        position:relative;
-        background-color: white;
-        border: 5px solid gray;
-        text-align: center;
-    }
-
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Bullshoals</title>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to Bullshoals</h1>
-    </header>
-    <nav>
-        <div class="dropdown">
-            <a href="#">Home</a>
+
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+          </a>
         </div>
-        <div class="dropdown">
-            <a href="#">Utilities</a>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="#services" data-after="Service">Accomidations</a></li>
+            <li><a href="#projects" data-after="Projects">Our Park</a></li>
+            <li><a href="#about" data-after="About">About Bull Shoals</a></li>
+            <li><a href="#contact" data-after="Contact">Contact</a></li>
+          </ul>
         </div>
-        <div class="dropdown">
-            <a href="#">Activities</a>
-            <div class="dropdown-content">
-                <a href="#">Option 1</a>
-                <a href="#">Option 2</a>
-                <a href="#">Option 3</a>
-            </div>
-        </div>
-        <a href="#">Contact</a>
-    </nav>
-    <section>
-        <h2>About Bull Shoals</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id diam maecenas ultricies mi eget mauris. Vel eros donec ac odio tempor orci. Tristique senectus et netus et malesuada fames ac turpis. Faucibus turpis in eu mi bibendum neque. Tristique nulla aliquet enim tortor at auctor urna. Vulputate dignissim suspendisse in est ante in. Mi in nulla posuere sollicitudin. Neque volutpat ac tincidunt vitae semper quis lectus nulla. Pretium viverra suspendisse potenti nullam ac tortor vitae purus. Quisque sagittis purus sit amet volutpat consequat mauris nunc. Ut placerat orci nulla pellentesque dignissim. Quam elementum pulvinar etiam non quam. Consequat ac felis donec et odio pellentesque diam. Lacinia at quis risus sed vulputate odio. Morbi non arcu risus quis varius. Enim sit amet venenatis urna cursus eget nunc.</p>
-    </section>
-
-    <section>
-        <h2 class="calendar"> Calendar </h2>
-        <div class="row"> 
-            <div class="grid-container">
-                <div class="grid-calendar"> 1</div>
-                <div class="grid-calendar"> 2</div>
-                <div class="grid-calendar"> 3</div>
-            </div>
-        </div>        
-    </section>
-
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="carousel-item">
-                <h3>Event 1</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-
-                </p>
-            </div>
-            
-            <div class="carousel-item">
-                <h3>Event 2</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-
-                </p>
-            </div>
-            <div class="carousel-item">
-                <h3>Event 3</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget enim nec ante rutrum sollicitudin. Ut et magna nec mauris consequat tincidunt non sed odio.
-
-                </p>
-            </div>
-            <!-- Add more events as needed -->
-        </div>
+      </div>
     </div>
-    <footer id="footerYear">
-        <p>&copy; <span id="currentYear"></span> State Park. All rights reserved.</p>
-    </footer>
+  </section>
 
-    <script>
-        // Update year in footer
-        const currentYear = new Date().getFullYear();
-        document.getElementById('currentYear').textContent = currentYear;
+  <section id="hero">
+    <div class="hero container">
+      <div>
+        <h1>Welcome, <span></span></h1>
+        <h1>To Bullshoals <span></span></h1>
+      </div>
+    </div>
+  </section>
 
-        // Carousel
-        const carousel = document.querySelector('.carousel');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        const totalItems = carouselItems.length;
-        let currentIndex = 0;
+  <section id="services">
+    <div class="services container">
+      <div class="service-top">
+        <h1 class="section-title">Accomidations</h1>
+        <p>What we have to offer at bullshoals</p>
+      </div>
 
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalItems;
-            updateCarousel();
-        }, 10000); // Change slide every 10 seconds
-
-        function updateCarousel() {
-            const offset = -currentIndex * 100;
-            carousel.style.transform = `translateX(${offset}%)`;
-        }
-    </script>
+  <!-- About Section -->
+  <section id="about">
+    <div class="about container">
+      <div class="col-left">
+        <div class="about-img">
+          <img src="./img/img-2.png" alt="img">
+        </div>
+      </div>
+      <div class="col-right">
+        <h1 class="section-title">About <span>Bullshoals</span></h1>
+        <h2></h2>
+        <p></p>
+      </div>
+    </div>
+  </section>
+  <script src="./app.js"></script>
 </body>
+
 </html>
