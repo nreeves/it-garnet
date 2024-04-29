@@ -393,16 +393,7 @@ p {
 #parks .park-item:hover .park-img img {
 	transform: scale(1.1);
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/* End parks section */
->>>>>>> parent of 286c933 (fixing)
-=======
-/* End parks section */
->>>>>>> parent of 286c933 (fixing)
 
-/* About Section */
 #about .about {
 	flex-direction: column-reverse;
 	text-align: center;
@@ -585,30 +576,12 @@ p {
 	}
 	/* End Hero */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	/* accomidations Section */
->>>>>>> parent of 286c933 (fixing)
-=======
-	/* accomidations Section */
->>>>>>> parent of 286c933 (fixing)
+
 	#accomidations .accomidation-bottom .accomidation-item {
 		flex-basis: 45%;
 		margin: 2.5%;
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	/* End accomidations Section */
 
-	/* park */
->>>>>>> parent of 286c933 (fixing)
-=======
-	/* End accomidations Section */
-
-	/* park */
->>>>>>> parent of 286c933 (fixing)
 	#parks .park-item {
 		flex-direction: row;
 	}
