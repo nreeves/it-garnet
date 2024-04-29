@@ -323,6 +323,12 @@ p {
 	color: white;
 	text-align: left;
 }
+<<<<<<< HEAD
+=======
+/* End accomidations Section */
+
+/* parks section */
+>>>>>>> parent of 286c933 (fixing)
 #parks .parks {
 	flex-direction: column;
 	max-width: 1200px;
@@ -393,7 +399,12 @@ p {
 #parks .park-item:hover .park-img img {
 	transform: scale(1.1);
 }
+<<<<<<< HEAD
+=======
+/* End parks section */
+>>>>>>> parent of 286c933 (fixing)
 
+/* About Section */
 #about .about {
 	flex-direction: column-reverse;
 	text-align: center;
@@ -449,6 +460,7 @@ p {
 	width: 90%;
 }
 #contact .contact-items {
+	/* max-width: 400px; */
 	width: 100%;
 }
 #contact .contact-item {
@@ -569,14 +581,26 @@ p {
 		font-size: 6rem;
 	}
 
+	/* Hero */
 	#hero h1 {
 		font-size: 7rem;
 	}
+	/* End Hero */
 
+<<<<<<< HEAD
+=======
+	/* accomidations Section */
+>>>>>>> parent of 286c933 (fixing)
 	#accomidations .accomidation-bottom .accomidation-item {
 		flex-basis: 45%;
 		margin: 2.5%;
 	}
+<<<<<<< HEAD
+=======
+	/* End accomidations Section */
+
+	/* park */
+>>>>>>> parent of 286c933 (fixing)
 	#parks .park-item {
 		flex-direction: row;
 	}
@@ -656,7 +680,12 @@ p {
 	}
 	/* End contact  */
 }
+<<<<<<< HEAD
+=======
+/* End Media Query For Tablet */
+>>>>>>> parent of 286c933 (fixing)
 
+/* Media Query For Desktop */
 @media only screen and (min-width: 1200px) {
 	/* header */
 	#header .hamburger {
@@ -678,6 +707,7 @@ p {
 	#header .nav-list ul a:after {
 		display: none;
 	}
+	/* End header */
 
 	#accomidations .accomidation-bottom .accomidation-item {
 		flex-basis: 22%;
