@@ -230,16 +230,7 @@ p {
 	animation: text_reveal 0.5s ease forwards;
 	animation-delay: 1s;
 }
-#hero h1:nth-child(1) {
-	animation-delay: 1s;
-}
-#hero h1:nth-child(2) {
-	animation-delay: 2s;
-}
-#hero h1:nth-child(3) {
-	animation: text_reveal_name 0.5s ease forwards;
-	animation-delay: 3s;
-}
+
 #hero h1 span {
 	position: absolute;
 	top: 0;
@@ -260,9 +251,6 @@ p {
 	animation-delay: 2.5s;
 }
 
-/* End Hero Section */
-
-/* accomidations Section */
 #accomidations .accomidations {
 	flex-direction: column;
 	text-align: center;
@@ -439,9 +427,7 @@ p {
 	border: 7px solid green;
 	z-index: -1;
 }
-/* End About Section */
 
-/* contact Section */
 #contact .contact {
 	flex-direction: column;
 	max-width: 1200px;
@@ -449,7 +435,7 @@ p {
 	width: 90%;
 }
 #contact .contact-items {
-	/* max-width: 400px; */
+
 	width: 100%;
 }
 #contact .contact-item {
@@ -484,9 +470,7 @@ p {
 	line-height: 2rem;
 	font-weight: 500;
 }
-/*End contact Section */
 
-/* Footer */
 #footer {
 	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 }
@@ -558,9 +542,7 @@ p {
 		font-weight: 500;
 	}
 }
-/* End Keyframes */
 
-/* Media Query For Tablet */
 @media only screen and (min-width: 768px) {
 	.cta {
 		font-size: 2.5rem;
@@ -661,16 +643,7 @@ p {
 	}
 	/* End contact  */
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/* End Media Query For Tablet */
->>>>>>> parent of 286c933 (fixing)
-=======
-/* End Media Query For Tablet */
->>>>>>> parent of 286c933 (fixing)
 
-/* Media Query For Desktop */
 @media only screen and (min-width: 1200px) {
 	/* header */
 	#header .hamburger {
