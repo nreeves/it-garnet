@@ -140,7 +140,7 @@ p {
 	letter-spacing: initial;
 }
 #header .nav-list ul li:hover a {
-	color: crimson;
+	color: green;
 }
 #header .hamburger {
 	height: 60px;
@@ -199,13 +199,13 @@ p {
 /* End Header section */
 
 #hero {
-	background-image: url(/bullshoals/img/hero-bg.jpg);
 	background-size: ;
 	background-position: top center;
 	position: relative;
 	z-index: 1;
 }
 #hero::after {
+	background-image: url(/bullshoals/img/hero-bg.jpg);
 	content: '';
 	position: absolute;
 	left: 0;
@@ -263,26 +263,26 @@ p {
 
 /* End Hero Section */
 
-/* Services Section */
-#services .services {
+/* accomidations Section */
+#accomidations .accomidations {
 	flex-direction: column;
 	text-align: center;
 	max-width: 1500px;
 	margin: 0 auto;
 	padding: 100px 0;
 }
-#services .service-top {
+#accomidations .accomidation-top {
 	max-width: 500px;
 	margin: 0 auto;
 }
-#services .service-bottom {
+#accomidations .accomidation-bottom {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
 	margin-top: 50px;
 }
-#services .service-item {
+#accomidations .accomidation-item {
 	flex-basis: 80%;
 	display: flex;
 	align-items: flex-start;
@@ -297,7 +297,7 @@ p {
 	z-index: 1;
 	overflow: hidden;
 }
-#services .service-item::after {
+#accomidations .accomidation-item::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -308,40 +308,40 @@ p {
 	opacity: 0.9;
 	z-index: -1;
 }
-#services .service-bottom .icon {
+#accomidations .accomidation-bottom .icon {
 	height: 80px;
 	width: 80px;
 	margin-bottom: 20px;
 }
-#services .service-item h2 {
+#accomidations .accomidation-item h2 {
 	font-size: 2rem;
 	color: white;
 	margin-bottom: 10px;
 	text-transform: uppercase;
 }
-#services .service-item p {
+#accomidations .accomidation-item p {
 	color: white;
 	text-align: left;
 }
-/* End Services Section */
+/* End accomidations Section */
 
-/* Projects section */
-#projects .projects {
+/* parks section */
+#parks .parks {
 	flex-direction: column;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 100px 0;
 }
-#projects .projects-header h1 {
+#parks .parks-header h1 {
 	margin-bottom: 50px;
 }
-#projects .all-projects {
+#parks .all-parks {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 }
-#projects .project-item {
+#parks .park-item {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -351,7 +351,7 @@ p {
 	overflow: hidden;
 	border-radius: 10px;
 }
-#projects .project-info {
+#parks .park-info {
 	padding: 30px;
 	flex-basis: 50%;
 	height: 100%;
@@ -362,25 +362,25 @@ p {
 	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 	color: white;
 }
-#projects .project-info h1 {
+#parks .park-info h1 {
 	font-size: 4rem;
 	font-weight: 500;
 }
-#projects .project-info h2 {
+#parks .park-info h2 {
 	font-size: 1.8rem;
 	font-weight: 500;
 	margin-top: 10px;
 }
-#projects .project-info p {
+#parks .park-info p {
 	color: white;
 }
-#projects .project-img {
+#parks .park-img {
 	flex-basis: 50%;
 	height: 300px;
 	overflow: hidden;
 	position: relative;
 }
-#projects .project-img:after {
+#parks .park-img:after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -390,13 +390,13 @@ p {
 	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 	opacity: 0.7;
 }
-#projects .project-img img {
+#parks .park-img img {
 	transition: 0.3s ease transform;
 }
-#projects .project-item:hover .project-img img {
+#parks .park-item:hover .park-img img {
 	transform: scale(1.1);
 }
-/* End Projects section */
+/* End parks section */
 
 /* About Section */
 #about .about {
@@ -581,33 +581,33 @@ p {
 	}
 	/* End Hero */
 
-	/* Services Section */
-	#services .service-bottom .service-item {
+	/* accomidations Section */
+	#accomidations .accomidation-bottom .accomidation-item {
 		flex-basis: 45%;
 		margin: 2.5%;
 	}
-	/* End Services Section */
+	/* End accomidations Section */
 
-	/* Project */
-	#projects .project-item {
+	/* park */
+	#parks .park-item {
 		flex-direction: row;
 	}
-	#projects .project-item:nth-child(even) {
+	#parks .park-item:nth-child(even) {
 		flex-direction: row-reverse;
 	}
-	#projects .project-item {
+	#parks .park-item {
 		height: 400px;
 		margin: 0;
 		width: 100%;
 		border-radius: 0;
 	}
-	#projects .all-projects .project-info {
+	#parks .all-parks .park-info {
 		height: 100%;
 	}
-	#projects .all-projects .project-img {
+	#parks .all-parks .park-img {
 		height: 100%;
 	}
-	/* End Project */
+	/* End park */
 
 	/* About */
 	#about .about {
@@ -694,9 +694,9 @@ p {
 	}
 	/* End header */
 
-	#services .service-bottom .service-item {
+	#accomidations .accomidation-bottom .accomidation-item {
 		flex-basis: 22%;
 		margin: 1.5%;
 	}
 }
-/* End  Media Query For Desktop */
+
