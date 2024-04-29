@@ -172,17 +172,7 @@ p {
 	background-color: white;
 	z-index: -1;
 }
-#header .hamburger .bar::after,
-#header .hamburger .bar::before {
-	content: '';
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	left: 0;
-	background-color: white;
-	transition: 0.3s ease;
-	transition-property: top, bottom;
-}
+
 #header .hamburger .bar::after {
 	top: 8px;
 }
@@ -195,16 +185,15 @@ p {
 #header .hamburger.active .bar::after {
 	top: 0;
 }
-/* End Header section */
 
-#hero {
+#banner {
 	background-size: ;
 	background-position: top center;
 	position: relative;
 	z-index: 1;
 }
-#hero::after {
-	background-image: url(bullshoals/img/hero-bg.jpg);
+#banner::after {
+	background-image: url(img/hero-bg.jpg);
 	content: '';
 	position: absolute;
 	left: 0;
@@ -215,13 +204,13 @@ p {
 	opacity: 0.7;
 	z-index: -1;
 }
-#hero .hero {
+#banner .banner {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 50px;
 	justify-content: flex-start;
 }
-#hero h1 {
+#banner h1 {
 	display: block;
 	width: fit-content;
 	font-size: 4rem;
@@ -231,7 +220,7 @@ p {
 	animation-delay: 1s;
 }
 
-#hero h1 span {
+#banner h1 span {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -241,13 +230,13 @@ p {
 	animation: text_reveal_box 1s ease;
 	animation-delay: 0.5s;
 }
-#hero h1:nth-child(1) span {
+#banner h1:nth-child(1) span {
 	animation-delay: 0.5s;
 }
-#hero h1:nth-child(2) span {
+#banner h1:nth-child(2) span {
 	animation-delay: 1.5s;
 }
-#hero h1:nth-child(3) span {
+#banner h1:nth-child(3) span {
 	animation-delay: 2.5s;
 }
 
@@ -552,123 +541,8 @@ p {
 		font-size: 6rem;
 	}
 
-	/* Hero */
-	#hero h1 {
+	/* banner */
+	#banner h1 {
 		font-size: 7rem;
-	}
-	/* End Hero */
-
-
-	#accomidations .accomidation-bottom .accomidation-item {
-		flex-basis: 45%;
-		margin: 2.5%;
-	}
-
-	#parks .park-item {
-		flex-direction: row;
-	}
-	#parks .park-item:nth-child(even) {
-		flex-direction: row-reverse;
-	}
-	#parks .park-item {
-		height: 400px;
-		margin: 0;
-		width: 100%;
-		border-radius: 0;
-	}
-	#parks .all-parks .park-info {
-		height: 100%;
-	}
-	#parks .all-parks .park-img {
-		height: 100%;
-	}
-	/* End park */
-
-	/* About */
-	#about .about {
-		flex-direction: row;
-	}
-	#about .col-left {
-		width: 600px;
-		height: 400px;
-		padding-left: 60px;
-	}
-	#about .about .col-left .about-img::after {
-		left: -45px;
-		top: 34px;
-		height: 98%;
-		width: 98%;
-		border: 10px solid green;
-	}
-	#about .col-right {
-		text-align: left;
-		padding: 30px;
-	}
-	#about .col-right h1 {
-		text-align: left;
-	}
-	/* End About */
-
-	/* contact  */
-	#contact .contact {
-		flex-direction: column;
-		padding: 100px 0;
-		align-items: center;
-		justify-content: center;
-		min-width: 20vh;
-	}
-	#contact .contact-items {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-evenly;
-		margin: 0;
-	}
-	#contact .contact-item {
-		width: 30%;
-		margin: 0;
-		flex-direction: row;
-	}
-	#contact .contact-item .icon {
-		height: 100px;
-		width: 100px;
-	}
-	#contact .contact-item .icon img {
-		object-fit: contain;
-	}
-	#contact .contact-item .contact-info {
-		width: 100%;
-		text-align: left;
-		padding-left: 20px;
-	}
-	/* End contact  */
-}
-
-@media only screen and (min-width: 1200px) {
-	/* header */
-	#header .hamburger {
-		display: none;
-	}
-	#header .nav-list ul {
-		position: initial;
-		display: block;
-		height: auto;
-		width: fit-content;
-		background-color: transparent;
-	}
-	#header .nav-list ul li {
-		display: inline-block;
-	}
-	#header .nav-list ul li a {
-		font-size: 1.8rem;
-	}
-	#header .nav-list ul a:after {
-		display: none;
-	}
-	/* End header */
-
-	#accomidations .accomidation-bottom .accomidation-item {
-		flex-basis: 22%;
-		margin: 1.5%;
 	}
 }
