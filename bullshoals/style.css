@@ -323,9 +323,6 @@ p {
 	color: white;
 	text-align: left;
 }
-/* End accomidations Section */
-
-/* parks section */
 #parks .parks {
 	flex-direction: column;
 	max-width: 1200px;
@@ -396,9 +393,7 @@ p {
 #parks .park-item:hover .park-img img {
 	transform: scale(1.1);
 }
-/* End parks section */
 
-/* About Section */
 #about .about {
 	flex-direction: column-reverse;
 	text-align: center;
@@ -454,7 +449,6 @@ p {
 	width: 90%;
 }
 #contact .contact-items {
-	/* max-width: 400px; */
 	width: 100%;
 }
 #contact .contact-item {
@@ -575,20 +569,14 @@ p {
 		font-size: 6rem;
 	}
 
-	/* Hero */
 	#hero h1 {
 		font-size: 7rem;
 	}
-	/* End Hero */
 
-	/* accomidations Section */
 	#accomidations .accomidation-bottom .accomidation-item {
 		flex-basis: 45%;
 		margin: 2.5%;
 	}
-	/* End accomidations Section */
-
-	/* park */
 	#parks .park-item {
 		flex-direction: row;
 	}
@@ -668,9 +656,7 @@ p {
 	}
 	/* End contact  */
 }
-/* End Media Query For Tablet */
 
-/* Media Query For Desktop */
 @media only screen and (min-width: 1200px) {
 	/* header */
 	#header .hamburger {
@@ -692,7 +678,6 @@ p {
 	#header .nav-list ul a:after {
 		display: none;
 	}
-	/* End header */
 
 	#accomidations .accomidation-bottom .accomidation-item {
 		flex-basis: 22%;
