@@ -322,18 +322,7 @@ p {
 	color: white;
 	text-align: left;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/* End accomidations Section */
 
-/* parks section */
->>>>>>> parent of 286c933 (fixing)
-=======
-/* End accomidations Section */
-
-/* parks section */
->>>>>>> parent of 286c933 (fixing)
 #parks .parks {
 	flex-direction: column;
 	max-width: 1200px;
