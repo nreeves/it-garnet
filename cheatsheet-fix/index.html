@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>HTML5 Cheatsheet</title>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <meta name="description" content="HTML5 Reference Document">
+  <meta name="Nate Reeves" content="">
+  <link href="/cheatsheet-fix/assets/style/style.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>HTML5 Reference Document</h1>
+  </header>
+
+  <section id="headings-section">
+    <h2 class="section-heading">Headings</h2>
+    <div class="output">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+    </code>
+</pre>
+    </div>
+  </section>
+
+  <section id="images-section">
+    <h2 class="section-heading">Images</h2>
+    <div class="output">
+      <img src="https://up.quizlet.com/4qdmrx-7J3Pb-256s.jpg" alt="BT21">
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+  <img src="https://up.quizlet.com/4qdmrx-7J3Pb-256s.jpg" alt="BT21">
+    </code>
+</pre>
+    </div>
+  </section>
+
+  <section id="lists-section">
+    <h2 class="section-heading">Types of Lists</h2>
+    <h3 class="section-heading">Unordered List</h3>
+    <div class="output">
+      <ul>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+      </ul>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+    <ul>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+    </ul>
+    </code>
+</pre>
+    </div>
+    <h3 class="section-heading">Ordered List</h3>
+    <div class="output">
+      <ol>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+      </ol>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+    <ol>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+    </ol>
+    </code>
+    </pre>
+    </div>
+    <h3 class="section-heading">Definition List</h3>
+    <div class="output">
+      <dl>
+        <dt>Definition Term</dt>
+        <dd>Definition Description</dd>
+        <dd>Definition Description</dd>
+        <dd>Definition Description</dd>
+        <dt>Definition Term</dt>
+        <dd>Definition Description</dd>
+        <dd>Definition Description</dd>
+        <dt>Definition Term</dt>
+        <dd>Definition Description</dd>
+      </dl>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+     <dl>
+      <dt>Definition Term</dt>
+      <dd>Definition Description</dd>
+      <dd>Definition Description</dd>
+      <dd>Definition Description</dd>
+      <dt>Definition Term</dt>
+      <dd>Definition Description</dd>
+      <dd>Definition Description</dd>
+      <dt>Definition Term</dt>
+      <dd>Definition Description</dd>
+    </dl>
+    </code>
+    </pre>
+    </div>
+  </section>
+
+  <section id="hyperlinks-section">
+    <h2 class="section-heading">Hyperlinks</h2>
+    <div class="output">
+      <ul>
+        <li><a href="https://ualr.edu" target="_blank" title="This is a verbose description of absolute link">Absolute Link</a></li>
+        <li><a href="resources/pages/about.html" target="_blank">Relative Link</a></li>
+        <li><a href="#top">Anchor Links</a></li>
+        <li><a href="mailto:email@address.com">Email Link</a></li>
+      </ul>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+    <ul>
+      <li><a href="https://ualr.edu" target="_blank" 
+      title="This is a verbose description of absolute 
+      link">Absolute Link</a></li>
+      <li><a href="resources/pages/about.html" 
+      target="_blank">Relative Link</a></li>
+      <li><a href="#top">Anchor Links</a></li>
+      <li><a href="mailto:email@address.com">
+      Email Link</a></li>
+    </ul>
+    </code>
+    </pre>
+    </div>
+  </section>
+
+  <section id="text-semantics-section">
+    <h2 class="section-heading">Text Based Sematics</h2>
+    <div class="output">
+      <p>
+        <em>Lorem Ipsum</em> is simply dummy text of the <strong>printing and typesetting industry</strong>. Lorem Ipsum has been the industry's standard <del>dummy text</del> ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of <sub>Lorem</sub><sup>Ipsum</sup>.
+      </p>
+      <address>
+        1234567 <br />Little Rock, AR, 72211
+      </address>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+<p><em>Lorem Ipsum</em> is simply dummy text of the <strong>printing and
+typesetting industry</strong>. Lorem Ipsum has been the industry's 
+standard <del>dummy text</del> ever since the 1500s, when an unknown
+printer took a galley of type and scrambled it to make a type
+specimen book.It has survived not only five centuries, but 
+also the leap into electronic typesetting, remaining essentially
+unchanged.It was popularised in the 1960s with the release of
+Letraset sheets containing Lorem Ipsum passages, and more
+recently with desktoppublishing software like Aldus 
+PageMaker including versions of <sub>Lorem</sub><sup>Ipsum</sup>.
+    </p>
+    <address>
+      12345678 <br />Little Rock, AR, 72211
+    </address>
+    </code>
+    </pre>
+    </div>
+  </section>
+
+  <section id="tables-section">
+    <h2 class="section-heading">Tables</h2>
+    <div class="output">
+      <table border="1">
+        <caption>Item list</caption>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Cost</th>
+        </tr>
+        <tr>
+          <td>Item 1</td>
+          <td>ID</td>
+          <td>Cost</td>
+        </tr>
+        <tr>
+          <td>Item 2</td>
+          <td>ID</td>
+          <td>Cost</td>
+        </tr>
+        <tr>
+          <td>Item 3</td>
+          <td>ID</td>
+          <td>Cost</td>
+        </tr>
+      </table>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+      <table border="1">
+      <caption>Items</caption>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Cost</th>
+      </tr>
+      <tr>
+        <td>Item</td>
+        <td>ID</td>
+        <td>Cost</td>
+      </tr>
+      <tr>
+        <td>Item</td>
+        <td>ID</td>
+        <td>Cost</td>
+      </tr>
+      <tr>
+        <td>Item</td>
+        <td>ID</td>
+        <td>Cost</td>
+      </tr>
+    </table>
+    </code>
+    </pre>
+    </div>
+  </section>
+
+  <section id="quotes-section">
+    <h2 class="section-heading">Quotes</h2>
+    <h3 class="section-heading">Blockquote</h3>
+    <div class="output">
+      <blockquote>"Example Quote" <cite> Test</cite></blockquote>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+        <blockquote>"Example Quote" <cite>Test/cite></blockquote>
+    </code>
+    </pre>
+    </div>
+    <h3 class="section-heading">Inline Quote</h3>
+    <div class="output">
+      <p><q>Test </q></p>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+        <p><q>Test</q></p>
+    </code>
+    </pre>
+    </div>
+  </section>

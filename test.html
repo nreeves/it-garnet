@@ -1,271 +1,644 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+<!-- This is a comment -->
 
 <head>
-  <title>IT Minor - CSS Demo</title>
-  <meta charset="UTF-8">
-  <meta name="description" content="Keyword rich narrative on site purpose">
-  <meta name="author" content="Ana Lupton">
-  <link href="assets/css/style.css" rel="stylesheet" />
+  <title>Ana Lupton</title>
+  <meta charset="utf-8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <meta name="description" content="Keyword rich description of the site's purpose">
+  <meta name="author" content="Ana Lupton">
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+
   <style>
-/* Color Theme Swatches in Hex #2B2D42 (dark blue) #8D99AE (gray) #EDF2F4 (light gray) #EF233C (red) #D90429 (dark red) */
-/* --------------- Box Sizing ----------------- */
+    /* ---------------Box Sizing----------------- */
+
 html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-/* --------------- Utility Classes ----------------- */
-.container {
-  margin: auto;
-  padding: 40px;
-}
-/* --------------- Responsive Image ----------------- */
-img {
-  max-width: 100%;
-}
-/* --------------- Global Styles ----------------- */
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #2B2D42;
-  color: #EDF2F4;
-}
-main {
-  background-color: #8D99AE;
-  width: 80vw;
-  margin: 40px auto;
-  border: .5px solid #EF233C;
-}
-header.primary {
-  background-image: url(https://assets.codepen.io/7248/bg_1.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-bottom: 5px solid #EF233C;
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-header.primary .hgroup {
-  width: 70%;
-}
-.hgroup h1, .hgroup h2 {
-  margin: 0;
-}
-header.primary .hgroup h1 a {
-  color: #EDF2F4;
-  text-decoration: none;
-  text-shadow: 1px 1px 5px #D90429;
-  font-size: 2.4rem;
-  font-family: 'Playfair Display', serif;
-}
-header.primary .hgroup h2 {
-  color: #EDF2F4;
-  text-shadow: 1px 1px 5px #D90429;
-  font-size: 1.4rem;
-  font-family: 'Montserrat', sans-serif;
-}
-header.primary nav {
-  width: 30%;
-  margin: 0;
-}
-header.primary nav ul {
-  list-style-type: none;
-  margin: 0;
-}
-header.primary nav ul li {
-  margin-bottom: 10px;
-}
-header.primary nav a {
-  text-decoration: none;
-  color: #EDF2F4;
-  text-shadow: 1px 1px 5px #D90429;
-  display: block;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 5px;
-  border: 5px solid #D90429;
-  border-radius: 10px;
-  text-align: center;
-  transition: 0.5s;
-  background-color: #2B2D42;
-  font-family: 'Montserrat', sans-serif;
-}
-header.primary nav a:hover {
-  box-shadow: 400px 0px 0px 0px inset #EDF2F4;
-  color: #D90429;
-  text-shadow: none;
-}
-header.primary nav a:active {
-  background-color: #EDF2F4;
-  color: #D90429;
-  text-shadow: none;
-}
-#content h2, #content h3 {
-  color: #EDF2F4;
-  border-left: 7.5px solid #D90429;
-  padding: 7.5px;
-  font-family: 'Playfair Display', serif;
-}
-#blog {
-  border-top: 5px solid #EF233C;
-  border-bottom: 5px solid #EF233C;
-  padding: 20px 0;
-}
-#blog > h2 {
-  text-shadow: 1px 1px 5px #D90429;
-  text-align: center;
-  font-size: 2rem;
-  font-family: 'Playfair Display', serif;
-}
-article.post {
-  background-color: #2B2D42;
-  margin: 10px;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-areas:
-    "figure header"
-    "figure post-content"
-    "figure footer";
-  grid-gap: 10px;
-  border: .5px solid #EF233C;
-}
-article.post figure {
-  grid-area: figure;
-  margin: 0;
-}
-article.post header {
-  grid-area: header;
-}
-article.post a {
-  color: #EDF2F4;
-  text-shadow: 1px 1px 5px #D90429;
-}
-article.post .post-content {
-  grid-area: post-content;
-}
-article.post .post-meta {
-  grid-area: footer;
-}
-aside .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 20px;
-}
-#colophon h6 {
-  text-align: center;
-  padding-top: 10px;
-  margin-bottom: 10px;
-  border-top: .5px solid #EF233C;
-  font-family: 'Montserrat', sans-serif;
-}
-  </style>
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  body{
+    font-family: 'Lato', sans-serif;
+    background:#FCCCDA;
+    padding:20px;
+    background-image: url(https://i.pinimg.com/originals/6f/3d/48/6f3d48716f25610df2f6d968aabd4d4f.jpg);
+  }
+  
+  label, input {
+    display:block;
+  }
+
+  footer{
+    color: #F9628F;
+  }
+  
+  header h1{
+    text-align:center;
+    color: #F9628F;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  section[id]{
+    border:6px solid rgba(0,0,0,.4);
+    background:#FCB0C7;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/010/839/386/original/aesthetic-minimal-cute-pastel-pink-wallpaper-illustration-perfect-for-wallpaper-backdrop-postcard-background-banner-vector.jpg);
+    border-radius:12px;
+    margin:40px auto;
+    padding:20px;
+    display:flex;
+    flex-wrap: wrap;
+    color: #F9628F;
+    font-family: 'Playfair Display', serif;
+  }
+
+  div.output a{
+    color: #F9628F;
+  }
+
+  div.output blockquote{
+    color: #905;
+  }
+
+  div.output p{
+    color: #905;
+  }
+  
+  h2.section-heading{
+     border-bottom:2px solid#905 ;
+  }
+  
+  .section-heading{
+    flex: 0 0 100%;
+  }
+  
+  h3.section-heading{
+    border-top:2px solid #905;
+    padding-top:20px;
+  }
+  
+  h2.section-heading + h3.section-heading {
+    border:none;
+    padding-top:0;
+  }
+  
+  .output{
+    flex: 1 30%;
+    padding-right:40px;
+    margin-bottom:40px;
+  }
+  .markup{
+    flex: 1 70%;
+    background-color:#FBE2EB;
+    padding:10px;
+    margin-bottom:40px;
+    overflow:auto;
+  }
+  
+  
+  /**
+   * prism.js default theme for JavaScript, CSS and HTML
+   * Based on dabblet (http://dabblet.com)
+   * @author Lea Verou
+   */
+  
+  code[class*="language-"],
+  pre[class*="language-"] {
+      color: #F9628F;
+      background: none;
+      text-shadow: 0 1px white;
+      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      font-size: 1em;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      line-height: 1.5;
+  
+      -moz-tab-size: 4;
+      -o-tab-size: 4;
+      tab-size: 4;
+  
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+  }
+  
+  pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+  code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #FCB0C7;
+  }
+  
+  pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+  code[class*="language-"]::selection, code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #b3d4fc;
+  }
+  
+  @media print {
+      code[class*="language-"],
+      pre[class*="language-"] {
+          text-shadow: none;
+      }
+  }
+  
+  /* Code blocks */
+  pre[class*="language-"] {
+      padding: .25em;
+      margin: .25em;
+      overflow: auto;
+  }
+  
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+      background: #f5f2f0;
+  }
+  
+  /* Inline code */
+  :not(pre) > code[class*="language-"] {
+      padding: .1em;
+      border-radius: .3em;
+      white-space: normal;
+  }
+  
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+      color: #FCB0C7;
+  }
+  
+  .token.punctuation {
+      color: #905;
+  }
+  
+  .token.namespace {
+      opacity: .7;
+  }
+  
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+      color: rgb(233, 71, 160);
+  }
+  
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+      color: #FCB0C7;
+  }
+  
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string {
+      color: #F9628F;
+      /* This background color was intended by the author of this theme. */
+      background: #F9628F(0, 0%, 100%, .5);
+  }
+  
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+      color: #f1b5ab;
+  }
+  
+  .token.function,
+  .token.class-name {
+      color: #DD4A68;
+  }
+  
+  .token.regex,
+  .token.important,
+  .token.variable {
+      color: #e90;
+  }
+  
+  .token.important,
+  .token.bold {
+      font-weight: bold;
+  }
+  .token.italic {
+      font-style: italic;
+  }
+  
+  .token.entity {
+      cursor: help;
+  }
+    </style>
 </head>
 
 <body>
-  <main>
-    <header role="banner" class="primary container">
-      <div class="hgroup">
-        <h1><a href="index.html">Building the Modern Web</a></h1>
-        <h2>HTML5, CSS, JavaScript Fundamentals</h2>
-      </div>
-      <nav role="navigation">
-        <ul>
-          <li><a href="http://learn.shayhowe.com/html-css/getting-to-know-html/">HTML5 & CSS Lessons</a></li>
-          <li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
-          <li><a href="contact.html">Contact Page</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section id="content" class="container">
-      <h2>Introduction to Web Design</h2>
-      <p>Integer pretium fringilla mauris, sed cursus purus consectetur eu. Donec vitae placerat enim. Nam dictum purus nec diam pharetra, in accumsan ipsum commodo. In varius ligula posuere, sodales erat nec, tempus purus. Quisque eu posuere arcu, ut pellentesque
-        dui. Nam pretium, leo et sollicitudin mollis, sapien mi ultricies tortor, in placerat lectus odio a nisl. Suspendisse feugiat magna id mollis auctor. Nullam neque sem, hendrerit vitae metus at, vestibulum aliquet metus. Quisque dapibus ultrices
-        pulvinar. Aliquam condimentum sapien lorem, in egestas ipsum rhoncus sed. Vivamus congue et eros in cursus. Donec elementum quam sit amet feugiat volutpat. Vestibulum varius laoreet turpis id efficitur. Proin scelerisque volutpat lectus, at fermentum
-        dui euismod sed. In efficitur felis risus, at tempor risus aliquam vel.</p>
-      <h3>An Additional Content Heading</h3>
-      <p>Integer pretium fringilla mauris, sed cursus purus consectetur eu. Donec vitae placerat enim. Nam dictum purus nec diam pharetra, in accumsan ipsum commodo. In varius ligula posuere, sodales erat nec, tempus purus. Quisque eu posuere arcu, ut pellentesque
-        dui. Nam pretium, leo et sollicitudin mollis, sapien mi ultricies tortor, in placerat lectus odio a nisl. Suspendisse feugiat magna id mollis auctor. Nullam neque sem, hendrerit vitae metus at, vestibulum aliquet metus. Quisque dapibus ultrices
-        pulvinar. Aliquam condimentum sapien lorem, in egestas ipsum rhoncus sed. Vivamus congue et eros in cursus. Donec elementum quam sit amet feugiat volutpat. Vestibulum varius laoreet turpis id efficitur. Proin scelerisque volutpat lectus, at fermentum
-        dui euismod sed. In efficitur felis risus, at tempor risus aliquam vel.</p>
-    </section>
-    <section id="blog" class="container">
-      <h2>Recent Posts</h2>
-      <article class="post">
-        <figure>
-          <img src="https://via.placeholder.com/300x200" alt="Placeholder">
-          <figcaption>Image Caption</figcaption>
-        </figure>
-        <header>
-          <time class="post-date" datetime="2023-11-7">November 7, 2023</time>
-         <h2> <a href="#" rel="bookmark" title="link to this post">Article Title</a> </h2>
-        </header>
-        <div class="post-content">
-          <p>Curabitur facilisis pharetra ultrices. Phasellus eu elementum felis. Etiam cursus mi vitae odio imperdiet, vel fringilla orci porttitor. Cras at tincidunt metus, in lobortis ligula. Fusce metus nisl, efficitur id fringilla quis, luctus non nisi.
-          </p>
-        </div>
-        <footer class="post-meta"> Posted by <a href="#">Post Author</a></footer>
-      </article>
-      <article class="post">
-        <figure>
-          <img src="https://via.placeholder.com/300x200" alt="Placeholder">
-          <figcaption>Image Caption</figcaption>
-        </figure>
-        <header>
-          <time class="post-date" datetime="2023-11-7">November 7, 2023</time>
-          <h2> <a href="#" rel="bookmark" title="link to this post">Article Title</a> </h2>
-        </header>
-        <div class="post-content">
-          <p>Curabitur facilisis pharetra ultrices. Phasellus eu elementum felis. Etiam cursus mi vitae odio imperdiet, vel fringilla orci porttitor. Cras at tincidunt metus, in lobortis ligula. Fusce metus nisl, efficitur id fringilla quis, luctus non nisi.
-          </p>
-        </div>
-        <footer class="post-meta"> Posted by <a href="#">Post Author</a></footer>
-      </article>
-      <article class="post">
-        <figure>
-          <img src="https://via.placeholder.com/300x200" alt="Placeholder">
-          <figcaption>Image Caption</figcaption>
-        </figure>
-        <header>
-          <time class="post-date" datetime="2023-11-7">November 7, 2023</time>
-          <h2> <a href="#" rel="bookmark" title="link to this post">Article Title</a> </h2>
-        </header>
-        <div class="post-content">
-          <p>Curabitur facilisis pharetra ultrices. Phasellus eu elementum felis. Etiam cursus mi vitae odio imperdiet, vel fringilla orci porttitor. Cras at tincidunt metus, in lobortis ligula. Fusce metus nisl, efficitur id fringilla quis, luctus non nisi.
-          </p>
-        </div>
-        <footer class="post-meta"> Posted by <a href="#">Post Author</a></footer>
-      </article>
-    </section>
-    <aside role="complementary">
-      <div class="container">
-        <article class="widget">
-          <header>
-            <h2>Sample Sidebar Item </h2>
-          </header>
-          <p>Quisque justo erat, varius placerat fermentum vel, iaculis vel ligula. Phasellus et elit purus. Curabitur ipsum enim, scelerisque vitae condimentum ac, cursus eget quam. Nullam volutpat dui ut risus pulvinar at fringilla sem tristique. Nulla facilisi.
-            Donec posuere euismod purus, eu scelerisque risus pellentesque eu. Vestibulum sed tincidunt metus. <a href="#">Read More &raquo;</a></p>
-          <footer>Widget Footer</footer>
-        </article>
-        <article class="widget">
-          <header>
-            <h2>Sample Sidebar Item </h2>
-          </header>
-          <p>Quisque justo erat, varius placerat fermentum vel, iaculis vel ligula. Phasellus et elit purus. Curabitur ipsum enim, scelerisque vitae condimentum ac, cursus eget quam. Nullam volutpat dui ut risus pulvinar at fringilla sem tristique. Nulla facilisi.
-            Donec posuere euismod purus, eu scelerisque risus pellentesque eu. Vestibulum sed tincidunt metus. <a href="#">Read More &raquo;</a></p>
-          <footer>Widget Footer</footer>
-        </article>
-      </div>
-    </aside>
-    <footer id="colophon" role="contentinfo">
-      <h6>&copy; 2023 Ana Lupton</h6>
-    </footer>
-  </main>
-</body>
+  <header>
+    <h1>HTML5 Reference Document</h1>
+  </header>
 
+  <section id="headings">
+    <h2 class="section-heading">Headings</h2>
+    <div class="output">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+ <script type="text/plain" class="language-markup">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+   </script>
+    </code>
+</pre>
+    </div>
+  </section>
+  <section id="images">
+    <h2 class="section-heading">Images</h2>
+    <div class="output">
+      <img src="https://up.quizlet.com/4qdmrx-7J3Pb-256s.jpg" alt="BT21">
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+ <script type="text/plain" class="language-markup">
+  <img src="https://up.quizlet.com/4qdmrx-7J3Pb-256s.jpg" alt="BT21">
+   </script>
+    </code>
+</pre>
+    </div>
+  </section>
+  <section id="lists">
+    <h2 class="section-heading">Types of Lists</h2>
+    <h3 class="section-heading">Unordered List</h3>
+    <div class="output">
+      <ul>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+      </ul>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+ <script type="text/plain" class="language-markup">
+    <ul>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+    </ul>
+   </script>
+    </code>
+</pre>
+    </div>
+    <h3 class="section-heading">Ordered List</h3>
+    <div class="output">
+           <ol>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+    </ol>
+    </div>
+    <div class="markup">
+    <pre>
+    <code class="language-markup">
+       <script type="text/plain" class="language-markup">
+    <ol>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+    </ol>
+       </script>
+    </code>
+    </pre>
+    </div>
+    <h3 class="section-heading">Definition List</h3>
+    <div class="output">
+     <dl>
+      <dt>Definition Term</dt>
+      <dd>Definition Description</dd>
+      <dd>Definition Description</dd>
+      <dd>Definition Description</dd>
+      <dt>Definition Term</dt>
+      <dd>Definition Description</dd>
+      <dd>Definition Description</dd>
+      <dt>Definition Term</dt>
+      <dd>Definition Description</dd>
+    </dl>
+    </div>
+    <div class="markup">
+    <pre>
+    <code class="language-markup">
+       <script type="text/plain" class="language-markup">
+     <dl>
+      <dt>Definition Term</dt>
+      <dd>Definition Description</dd>
+      <dd>Definition Description</dd>
+      <dd>Definition Description</dd>
+      <dt>Definition Term</dt>
+      <dd>Definition Description</dd>
+      <dd>Definition Description</dd>
+      <dt>Definition Term</dt>
+      <dd>Definition Description</dd>
+    </dl>
+       </script>
+    </code>
+    </pre>
+    </div>
+  </section>
+  <section id="hyperlinks">
+    <h2 class="section-heading">Hyperlinks</h2>
+    <div class="output">
+<ul>
+      <li><a href="https://ualr.edu" target="_blank" title="This is a verbose description of absolute link">Absolute Link</a></li>
+      <li><a href="resources/pages/about.html" target="_blank">Relative Link</a></li>
+      <li><a href="#top">Anchor Links</a></li>
+      <li><a href="mailto:email@address.com">Email Link</a></li>
+    </ul>
+    </div>
+    <div class="markup">
+      <pre>
+    <code class="language-markup">
+ <script type="text/plain" class="language-markup">
+    <ul>
+      <li><a href="https://ualr.edu" target="_blank" 
+      title="This is a verbose description of absolute 
+      link">Absolute Link</a></li>
+      <li><a href="resources/pages/about.html" 
+      target="_blank">Relative Link</a></li>
+      <li><a href="#top">Anchor Links</a></li>
+      <li><a href="mailto:email@address.com">
+      Email Link</a></li>
+    </ul>
+   </script>
+    </code>
+    </pre>
+    </div>
+  </section>
+  <section id="text-based-semantics">
+    <h2 class="section-heading">Text Based Sematics</h2>
+    <div class="output">
+        <p>
+      <em>Lorem Ipsum</em> is simply dummy text of the <strong>printing and typesetting industry</strong>. Lorem Ipsum has been the industry's standard <del>dummy text</del> ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of <sub>Lorem</sub><sup>Ipsum</sup>.
+    </p>
+    <address>
+      501 North Filmore<br />Little Rock, AR, 72205
+    </address>
+    </div>
+    <div class="markup">
+    <pre>
+    <code class="language-markup">
+       <script type="text/plain" class="language-markup">
+<p><em>Lorem Ipsum</em> is simply dummy text of the <strong>printing and
+typesetting industry</strong>. Lorem Ipsum has been the industry's 
+standard <del>dummy text</del> ever since the 1500s, when an unknown
+printer took a galley of type and scrambled it to make a type
+specimen book.It has survived not only five centuries, but 
+also the leap into electronic typesetting, remaining essentially
+unchanged.It was popularised in the 1960s with the release of
+Letraset sheets containing Lorem Ipsum passages, and more
+recently with desktop publishing software like Aldus 
+PageMaker including versions of <sub>Lorem</sub><sup>Ipsum</sup>.
+    </p>
+    <address>
+      501 North Filmore<br />Little Rock, AR, 72205
+    </address>
+       </script>
+    </code>
+    </pre>
+    </div>
+  </section>
+  <section id="tables">
+    <h2 class="section-heading">Tables</h2>
+    <div class="output">
+          <table border="1">
+      <caption>Groceries</caption>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Cost</th>
+      </tr>
+      <tr>
+        <td>Cheetos</td>
+        <td>12</td>
+        <td>.99</td>
+      </tr>
+      <tr>
+        <td>Cheetos</td>
+        <td>12</td>
+        <td>.99</td>
+      </tr>
+      <tr>
+        <td>Cheetos</td>
+        <td>12</td>
+        <td>.99</td>
+      </tr>
+    </table>
+    </div>
+    <div class="markup">
+    <pre>
+    <code class="language-markup">
+       <script type="text/plain" class="language-markup">
+      <table border="1">
+      <caption>Groceries</caption>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Cost</th>
+      </tr>
+      <tr>
+        <td>Cheetos</td>
+        <td>12</td>
+        <td>.99</td>
+      </tr>
+      <tr>
+        <td>Cheetos</td>
+        <td>12</td>
+        <td>.99</td>
+      </tr>
+      <tr>
+        <td>Cheetos</td>
+        <td>12</td>
+        <td>.99</td>
+      </tr>
+    </table>
+       </script>
+    </code>
+    </pre>
+    </div>
+  </section>
+  <section id="quotes">
+    <h2 class="section-heading">Quotes</h2>
+    <h3 class="section-heading">Blockquote</h3>
+    <div class="output">
+      <blockquote>"Don't be trapped in someone elses dream" <cite>Taehyung BTS</cite></blockquote>
+    </blockquote>
+    </div>
+    <div class="markup">
+    <pre>
+    <code class="language-markup">
+       <script type="text/plain" class="language-markup">
+        <blockquote>"Don't be trapped in someone elses dream" <cite>Taehyung BTS</cite></blockquote>
+       </script>
+    </code>
+    </pre>
+    </div>
+    <h3 class="section-heading">Inline Quote</h3>
+    <div class="output">
+      <p><q>Rainy Days</q> by V</p>
+    </div>
+    <div class="markup">
+    <pre>
+    <code class="language-markup">
+       <script type="text/plain" class="language-markup">
+        <p><q>Rainy Days</q> by V</p>
+       </script>
+    </code>
+    </pre>
+    </div>
+  </section>
+  <section id="forms">
+    <h2 class="section-heading">Forms</h2>
+        <div class="output">
+        <form action="processing-script.php" method="get">
+      <fieldset>
+        <legend>Sample Form Fields</legend>
+        <label for="first-name">First Name</label>
+        <input type="input" id="first-name" name="first-name" required>
+        <label for="comments">Comments</label>
+        <textarea id="comments" name="comments"></textarea>
+        <label for="fav-car">Favorite Car Maker</label>
+        <select id="fav-car" name="fav-car">
+          <option value="F">Ford</option>
+          <option value="C">Chevy</option>
+          <option value="D">Dodge</option>
+          <option value="null" selected>---</option>
+        </select>
+        <input type="submit" value="Send">
+        <fieldset>
+          <legend>Select a maintenance drone:</legend>
+
+          <div>
+            <input type="radio" id="huey" name="drone" value="huey" checked>
+            <label for="huey">Huey</label>
+          </div>
+
+          <div>
+            <input type="radio" id="dewey" name="drone" value="dewey">
+            <label for="dewey">Dewey</label>
+          </div>
+
+          <div>
+            <input type="radio" id="louie" name="drone" value="louie">
+            <label for="louie">Louie</label>
+          </div>
+        </fieldset>
+
+      </fieldset>
+    </form>
+    </div>
+    <div class="markup">
+    <pre>
+    <code class="language-markup">
+       <script type="text/plain" class="language-markup">
+        <form action="processing-script.php" method="get">
+      <fieldset>
+        <legend>Sample Form Fields</legend>
+        <label for="first-name">First Name</label>
+        <input type="input" id="first-name" name="first-name" required>
+        <label for="comments">Comments</label>
+        <textarea id="comments" name="comments"></textarea>
+        <label for="fav-car">Favorite Car Maker</label>
+        <select id="fav-car" name="fav-car">
+          <option value="F">Ford</option>
+          <option value="C">Chevy</option>
+          <option value="D">Dodge</option>
+          <option value="null" selected>---</option>
+        </select>
+        <input type="submit" value="Send">
+        <fieldset>
+          <legend>Select a maintenance drone:</legend>
+          <div>
+            <input type="radio" id="huey" name="drone" value="huey" checked>
+            <label for="huey">Huey</label>
+          </div>
+          <div>
+            <input type="radio" id="dewey" name="drone" value="dewey">
+            <label for="dewey">Dewey</label>
+          </div>
+          <div>
+            <input type="radio" id="louie" name="drone" value="louie">
+            <label for="louie">Louie</label>
+          </div>
+        </fieldset>
+
+      </fieldset>
+    </form>
+       </script>
+    </code>
+    </pre>
+    </div>
+   
+  </section>
+      <section id="structural-elements">
+      <h2 class="section-heading">Structural Elements</h2>
+      <div class="output">
+      <code>&lt;main&gt;</code><br>
+      <code>&lt;header&gt;</code><br>
+      <code>&lt;footer&gt;</code><br>
+      <code>&lt;nav&gt;</code><br>
+      <code>&lt;section&gt;</code><br>
+      <code>&lt;article&gt;</code><br>
+      <code>&lt;aside&gt;</code><br>
+      <code>&lt;figure&gt;</code><br>
+      <code>&lt;figcaption&gt;</code>
+    </div>
+    <div class="markup">
+    <pre>
+    <code class="language-markup">
+       <script type="text/plain" class="language-markup">
+  <main>
+  <header>
+  <footer>
+  <nav>
+  <section>
+  <article>
+  <aside>
+  <figure>
+  <figcaption>
+       </script>
+    </code>
+    </pre>
+    </div>
+    </section>
+  <footer>&copy; 2024 Ana Lupton
+  </footer>
+</body>
 </html>
