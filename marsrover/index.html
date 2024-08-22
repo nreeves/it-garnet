@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Mars Rover" />
+    <meta name="keywords" content="JavaScript, HTML, CSS" />
+    <meta name="author" content="NREEVES Mars Rover " />
+    <title>Mars Rover</title>
+
+<style>
+      .formcontainer {
+  width: 1000px;
+  padding: 5px;
+}
+
+.formlabel {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  padding: 5px;
+}
+
+img[src="#"] {
+  display: none;
+  position: relative;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 25px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="formcontainer">
+      <h1>Mars Rover Photo Explorer</h1>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Rover</th>
+            <th>Mission Start</th>
+            <th>Mission End</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Curiosity</td>
+            <td>08/06/2012</td>
+            <td>09/28/2019</td>
+          </tr>
+          <tr>
+            <td>Opportunity</td>
+            <td>01/26/2004</td>
+            <td>06/11/2018</td>
+          </tr>
+          <tr>
+            <td>Spirit</td>
+            <td>01/05/2004</td>
+            <td>03/21/2004</td>
+          </tr>
+        </tbody>
+      </table>
+      <form id="myform">
+        <h2>Select a rover and a picture date:</h2>
+        <label class="formlabel">Rover:</label>
+        <label for="curiosity">
+          <input
+            type="radio"
+            name="rover"
+            id="curiosity"
+            value="curiosity"
+            onchange="getCuriosity()"
+            data-rule-required="true"
+            data-msg-required="A Rover is Required"
+          />Curiosity
+        </label>
+
+        <label for="opportunity">
+          <input
+            type="radio"
+            name="rover"
+            id="opportunity"
+            value="opportunity"
+            onchange="getOpportunity()"
+            data-rule-required="true"
+            data-msg-required="A Rover is Required"
+          />Opportunity
+        </label>
+
+        <label for="spirit">
+          <input
+            type="radio"
+            name="rover"
+            id="spirit"
+            value="spirit"
+            onchange="getSpirit()"
+            data-rule-required="true"
+            data-msg-required="A Rover is Required"
+          />Spirit
+        </label>
+        <label id="roverError" for="rover" class="error"></label>
+        <br />
+        <label class="formlabel" for="pictureDate">Picture Date:</label>
+        <input
+          type="date"
+          name="pictureDate"
+          id="pictureDate"
+          data-rule-required="true"
+          data-msg-required="Please input date"
+        />
+        <label id="pictureDateError" for="pictureDate" class="error"></label>
+        <br />
+        <br />
+        <input
+          type="button"
+          value="Search"
+          id="search"
+          name="search"
+          onclick="getPhotos();"
+        />
+        <input
+          type="button"
+          value="Clear"
+          id="Clear"
+          name="Clear"
+          onclick="clearForm();"
+        />
+        <p id="numPhoto"></p>
+        <hr />
+        <p id="displayPhoto"></p>
+        <br />
+
+        <div id="gallery">
+          <a id="href0" href="">
+            <img src="#" id="image0" title="" />
+          </a>
+
+          <a id="href1" href="">
+            <img src="#" id="image1" title="" />
+          </a>
+
+          <a id="href2" href="">
+            <img src="#" id="image2" title="" />
+          </a>
+
+          <a id="href3" href="">
+            <img src="#" id="image3" title="" />
+          </a>
+
+          <a id="href4" href="">
+            <img src="#" id="image4" title="" />
+          </a>
+
+          <a id="href5" href="">
+            <img src="#" id="image5" title="" />
+          </a>
+
+          <a id="href6" href="">
+            <img src="#" id="image6" title="" />
+          </a>
+
+          <a id="href7" href="">
+            <img src="#" id="image7" title="" />
+          </a>
+
+          <a id="href8" href="">
+            <img src="#" id="image8" title="" />
+          </a>
+
+          <a id="href9" href="">
+            <img src="#" id="image9" title="" />
+          </a>
+
+          <a id="href10" href="">
+            <img src="#" id="image10" title="" />
+          </a>
+
+          <a id="href11" href="">
+            <img src="#" id="image11" title="" />
+          </a>
+
+          <a id="href12" href="">
+            <img src="#" id="image12" title="" />
+          </a>
+
+          <a id="href13" href="">
+            <img src="#" id="image13" title="" />
+          </a>
+
+          <a id="href14" href="">
+            <img src="#" id="image14" title="" />
+          </a>
+
+          <a id="href15" href="">
+            <img src="#" id="image15" title="" />
+          </a>
+
+          <a id="href16" href="">
+            <img src="#" id="image16" title="" />
+          </a>
+
+          <a id="href17" href="">
+            <img src="#" id="image17" title="" />
+          </a>
+
+          <a id="href18" href="">
+            <img src="#" id="image18" title="" />
+          </a>
+
+          <a id="href19" href="">
+            <img src="#" id="image19" title="" />
+          </a>
+
+          <a id="href20" href="">
+            <img src="#" id="image20" title="" />
+          </a>
+
+          <a id="href21" href="">
+            <img src="#" id="image21" title="" />
+          </a>
+
+          <a id="href22" href="">
+            <img src="#" id="image22" title="" />
+          </a>
+
+          <a id="href23" href="">
+            <img src="#" id="image23" title="" />
+          </a>
+
+          <a id="href24" href="">
+            <img src="#" id="image24" title="" />
+          </a>
+        </div>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
+    <script src="script/code.js"></script>
+  </body>
+</html>

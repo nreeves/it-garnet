@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #333;
+}
+
+
+section {
+    margin-bottom: 40px;
+}
+
+.section-heading {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.output,
+.markup {
+    display: inline-block;
+    width: calc(50% - 10px);
+    vertical-align: top;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.output {
+    margin-right: 20px;
+}
+
+pre[class*="language-"],
+code[class*="language-"] {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #999;
+}
+
+.token.punctuation {
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .output,
+    .markup {
+        display: block;
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
