@@ -35,11 +35,13 @@ async function createCharts(startDate, endDate, siteData) {
 }
 
 function formatDate(date) {
-    const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    return dayOfWeek[date.getDay()];
+    const dayOfMonth = date.getDate();
+    const abbreviatedDayOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
+    const month = date.getMonth() + 1;
+
+    return `${month}/${dayOfMonth} (${abbreviatedDayOfWeek})`;
 }
 
-// Function to create a chart for a specific site with provided water level data
 function createChart(siteCode, siteName, waterLevels) {
     const chartsGrid = document.getElementById('chartsGrid');
     const chartContainer = document.createElement('div');
@@ -95,7 +97,7 @@ function createChart(siteCode, siteName, waterLevels) {
                 tooltip: {
                     callbacks: {
                         label: (tooltipItem) => {
-                            const value = tooltipItem.raw.y.toFixed(2); // Format water level to 2 decimal places
+                            const value = tooltipItem.raw.y.toFixed(2);
                             return `Water Level: ${value} ft`;
                         }
                     }
@@ -108,7 +110,7 @@ function createChart(siteCode, siteName, waterLevels) {
                         wheel: { enabled: true },
                         pinch: { enabled: true },
                         mode: 'xy',
-                        limits: { max: 5, min: 0 }
+                        limits: { max: 1, min: 5 }
                     }
                 }
             }
@@ -124,7 +126,7 @@ function createChart(siteCode, siteName, waterLevels) {
     });
 
     chart.zoom({
-        wheel: { enabled: true }, pinch: { enabled: true }, mode: 'xy', limits: { max: 5, min: 0 }
+        wheel: { enabled: true }, pinch: { enabled: false}, mode: 'xy', limits: { max: 5, min: 1 }
 
     });
 
@@ -235,10 +237,25 @@ document.addEventListener('DOMContentLoaded', async function() {
         { code: '07055680', name: 'Pruitt, AR' },
         { code: '07055646', name: 'Boxley, AR' },
         { code: '07055780', name: 'Carver Access, AR' }
+
     ];
-
     await createCharts(startDate, endDate, siteData);
-
     const resetGraphBtn = document.getElementById('resetGraphBtn');
-    resetGraphBtn.addEventListener('click', resetCharts);
-});
+            resetGraphBtn.addEventListener('click', resetCharts);
+        });
+
+        async function resetCharts() {
+            const chartsGrid = document.getElementById('chartsGrid');
+            chartsGrid.innerHTML = '';
+        
+            const endDate = new Date().toISOString().slice(0, 10);
+            const startDate = new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+        
+            const siteData = [
+                { code: '07055660', name: 'Ponca, AR' },
+                { code: '07055680', name: 'Pruitt, AR' },
+                { code: '07055646', name: 'Boxley, AR' },
+                { code: '07055780', name: 'Carver Access, AR' }
+            ];
+            await createCharts(startDate, endDate, siteData);
+        }

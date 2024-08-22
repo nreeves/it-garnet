@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../GitHub/buffalo-retreat"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "it-garnet"
+	}
+}

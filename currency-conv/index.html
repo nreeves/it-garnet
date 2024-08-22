@@ -12,9 +12,7 @@ async function convert() {
        var apiKey = "LOasXXgxJOX0VqFiQEt_pcBlOq1DL95O";
        var fromDate = document.getElementById("FromDate").value;
        var toDate = document.getElementById("ToDate").value;
-
-
-       /* URL for AJAX Call */
+       
        let myURL =       "https://api.polygon.io/v2/aggs/ticker/C:" + fromCurrency + toCurrency + "/range/1/day/" + fromDate + "/" + toDate + "?unadjusted=false&sort=asc&limit=32&apiKey=LOasXXgxJOX0VqFiQEt_pcBlOq1DL95O" + apiKey;
        let msg1Object = await fetch(myURL);
   
